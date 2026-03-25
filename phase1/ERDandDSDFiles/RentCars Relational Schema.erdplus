@@ -1,0 +1,812 @@
+{
+  "diagramType": 2,
+  "data": {
+    "nodes": [
+      {
+        "id": "ff1bef12-2d55-4522-be0f-5377b52576e2",
+        "type": "Table",
+        "position": {
+          "x": 306.3729777193172,
+          "y": 169.8398865640989
+        },
+        "data": {
+          "label": "CAR",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "23449e92-f95e-472a-9ab1-703a1671754a",
+              "name": "car_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "32985439-bfbf-411a-8a8c-023d088dc5be",
+              "name": "brand",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isOptional": false
+            },
+            {
+              "id": "9e9ce3cd-7bd2-4946-8ca3-e49a2d11d11c",
+              "name": "model",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isOptional": false
+            },
+            {
+              "id": "0187c3eb-873f-4b10-85e8-bc98bdb33b2c",
+              "name": "year",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "isOptional": false
+            },
+            {
+              "id": "d0ebede7-fa68-4c6e-b8cd-093e617e286f",
+              "name": "car_type",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isOptional": false
+            },
+            {
+              "id": "6db8e23d-ffd6-4d68-aa8e-6036ed5e1b52",
+              "name": "seats_number",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "isOptional": false
+            },
+            {
+              "id": "33e41f15-c5d5-4140-acf8-71f63f3c2456",
+              "name": "transmission_type",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "20",
+              "isOptional": false
+            },
+            {
+              "id": "e2b7868f-09bd-43cf-94dc-acba345a85d0",
+              "name": "trunk_capacity",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "isOptional": true
+            },
+            {
+              "id": "96455d96-923c-4ff5-be05-7c3ad8523122",
+              "name": "price_per_day",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "size": "10, 2",
+              "isOptional": false
+            },
+            {
+              "id": "4ebe6df0-c28d-4136-a2d1-6c21337583e6",
+              "name": "status",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "20",
+              "isOptional": false
+            },
+            {
+              "id": "c88c47de-df27-4e31-b633-f28ddde1cb37",
+              "name": "car_features",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "100",
+              "isOptional": true
+            },
+            {
+              "id": "5a54132a-a0aa-4755-8f16-77f50242c834",
+              "name": "fk_RENTALCOMPANY",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "1f455bba-0807-42b4-abdf-b68546c657b2",
+                "sourceTableId": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef",
+                "columns": [
+                  {
+                    "id": "fk_4228b605-0801-4061-8df0-ba32c052890a",
+                    "name": "company_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 322
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "8ff60b2f-ab3a-44ad-a957-0080302f835c",
+        "type": "Table",
+        "position": {
+          "x": 1101.8821156515105,
+          "y": 226.2307278639879
+        },
+        "data": {
+          "label": "TOURIST",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "00942064-2f4a-4ec7-92d6-33ea9af3f1ea",
+              "name": "tourist_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "7dc689cc-06db-4b5d-9646-8d8ac5a8ea8e",
+              "name": "first_name",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isUnique": false
+            },
+            {
+              "id": "fd88ab0a-d321-4f3a-bc22-bf6f4c57bf88",
+              "name": "last_name",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isUnique": false
+            },
+            {
+              "id": "be43e876-5d7b-491f-983b-573ee04dd421",
+              "name": "email",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "100",
+              "isUnique": true
+            },
+            {
+              "id": "3f3290cb-1ef0-4e62-b152-d09c584f9185",
+              "name": "phone",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "20",
+              "isUnique": false
+            },
+            {
+              "id": "83505555-b28d-4b3f-854f-2db478e1ae38",
+              "name": "country",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isUnique": false
+            },
+            {
+              "id": "4dba5283-4996-43a4-b5a5-fb006b0e2177",
+              "name": "passportNumber",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "20",
+              "isUnique": true
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 198
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef",
+        "type": "Table",
+        "position": {
+          "x": -131.80772974340405,
+          "y": 321.8224157998434
+        },
+        "data": {
+          "label": "RENTAL_COMPANY",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "4228b605-0801-4061-8df0-ba32c052890a",
+              "name": "company_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "0a4e0f69-88c3-46d1-b1b2-a66e37a0e72f",
+              "name": "company_name",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isUnique": false
+            },
+            {
+              "id": "c4afab13-4dd0-4482-a594-50083e2d6ea5",
+              "name": "phone",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "20",
+              "isUnique": false
+            },
+            {
+              "id": "470ca178-4a22-4da6-a644-882d34fe4a1c",
+              "name": "email",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "100",
+              "isUnique": true
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": true
+        },
+        "measured": {
+          "width": 240,
+          "height": 124
+        },
+        "selected": true,
+        "dragging": false
+      },
+      {
+        "id": "e3a70d9e-9984-4b16-825a-e55db0da3b49",
+        "type": "Table",
+        "position": {
+          "x": 749.4070073195069,
+          "y": -42.96750139359496
+        },
+        "data": {
+          "label": "REVIEW",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "a6b20923-a1ab-4e0e-9f3a-f29919e4f2bd",
+              "name": "review_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": false
+            },
+            {
+              "id": "48fc9fa8-bddc-4569-86de-baf4c39ecf57",
+              "name": "rating",
+              "type": "INT",
+              "isPrimaryKey": false,
+              "isUnique": false,
+              "isOptional": false
+            },
+            {
+              "id": "de71a4a2-a18e-4ce2-b7f1-2b8007e016de",
+              "name": "comment",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "150",
+              "isUnique": false,
+              "isOptional": true
+            },
+            {
+              "id": "1ea6446b-927d-4dc1-a527-6b6b713ae693",
+              "name": "review_date",
+              "type": "DATE",
+              "isPrimaryKey": false,
+              "isUnique": false,
+              "isOptional": false
+            },
+            {
+              "id": "7264c601-d7c4-4c74-b821-316c2bb07a79",
+              "name": "review_title",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isUnique": false,
+              "isOptional": false
+            },
+            {
+              "id": "a5fd9e09-bd06-4bc8-b233-541aab8d100a",
+              "name": "fk_BOOKING",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "9103b803-3fd2-4b55-a1e4-acc82cfd890a",
+                "sourceTableId": "0525bb54-c0f0-4aa8-9781-18b05a64792a",
+                "columns": [
+                  {
+                    "id": "fk_6ac5b5c8-77c2-4b56-8217-de4dfd06c681",
+                    "name": "booking_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false,
+              "isUnique": true
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 174
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "0525bb54-c0f0-4aa8-9781-18b05a64792a",
+        "type": "Table",
+        "position": {
+          "x": 735.1555462688045,
+          "y": 201.28714494061254
+        },
+        "data": {
+          "label": "BOOKING",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "e1e1e4ac-9349-4381-b0d5-ac8b27c3d249",
+              "name": "pickup_date",
+              "type": "DATE",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "312dd5c6-38d0-4476-82ae-cec85ce4ed33",
+              "name": "total_price",
+              "type": "NUMERIC(p s)",
+              "isPrimaryKey": false,
+              "size": "10, 2"
+            },
+            {
+              "id": "c98c3cde-676c-4eb3-89db-f28653a2ac90",
+              "name": "return_date",
+              "type": "DATE",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "7c20d13d-bb00-4739-b98a-ac4ace1959fa",
+              "name": "status",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "20"
+            },
+            {
+              "id": "6ac5b5c8-77c2-4b56-8217-de4dfd06c681",
+              "name": "booking_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "a97ff847-287b-4d52-99bc-da273c6f4144",
+              "name": "booking_date",
+              "type": "DATE",
+              "isPrimaryKey": false
+            },
+            {
+              "id": "bc461ebc-42e8-4730-b4e3-6120561430c2",
+              "name": "fk_CAR",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "bd012147-094e-47bb-a5ee-a27edd1d67de",
+                "sourceTableId": "ff1bef12-2d55-4522-be0f-5377b52576e2",
+                "columns": [
+                  {
+                    "id": "fk_23449e92-f95e-472a-9ab1-703a1671754a",
+                    "name": "car_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            },
+            {
+              "id": "ae6ca176-5be8-480d-8c05-f0d7e219a976",
+              "name": "fk_TOURIST",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "e366a648-1f14-4f7f-be1c-deebc6d6b11c",
+                "sourceTableId": "8ff60b2f-ab3a-44ad-a957-0080302f835c",
+                "columns": [
+                  {
+                    "id": "fk_00942064-2f4a-4ec7-92d6-33ea9af3f1ea",
+                    "name": "tourist_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            },
+            {
+              "id": "7bc54b98-83d0-454a-846a-c4094f556954",
+              "name": "fk_LOCATION",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "bfd824c1-f269-4433-9350-5863d08cf40b",
+                "sourceTableId": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+                "columns": [
+                  {
+                    "id": "fk_29f78406-a5ab-4b0f-a467-56dda22fb13e",
+                    "name": "pickup_location",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            },
+            {
+              "id": "eb0b9b85-c830-4209-9a0e-9a1c3026e158",
+              "name": "fk_LOCATION",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "3d1c127f-748c-4f44-9ca2-0af3a24e172b",
+                "sourceTableId": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+                "columns": [
+                  {
+                    "id": "fk_29f78406-a5ab-4b0f-a467-56dda22fb13e",
+                    "name": "return_location",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 273
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+        "type": "Table",
+        "position": {
+          "x": 470.8134943405251,
+          "y": 561.2154681239871
+        },
+        "data": {
+          "label": "LOCATION",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "29f78406-a5ab-4b0f-a467-56dda22fb13e",
+              "name": "location_id",
+              "type": "INT",
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "660efc5b-e7a2-4c24-aa8d-e08981bf852c",
+              "name": "city",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isOptional": false
+            },
+            {
+              "id": "73e0603a-fe62-466d-869e-6624bb3ef57e",
+              "name": "address",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "150",
+              "isOptional": false
+            },
+            {
+              "id": "03cc1059-4ff6-4198-af0a-e8d44a578f1e",
+              "name": "country",
+              "type": "VARCHAR(n)",
+              "isPrimaryKey": false,
+              "size": "50",
+              "isOptional": false
+            },
+            {
+              "id": "511b35f9-d8d4-4e79-aae8-cd32550fd177",
+              "name": "latitude",
+              "type": "FLOAT",
+              "isPrimaryKey": false,
+              "isOptional": true
+            },
+            {
+              "id": "80d9bac2-5738-47a1-8635-7766745f2a44",
+              "name": "longitude",
+              "type": "FLOAT",
+              "isPrimaryKey": false,
+              "isOptional": true
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 173
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "86573e46-ca2a-489a-a1e0-3dbfa1e41bf4",
+        "type": "Table",
+        "position": {
+          "x": 157.51175815035765,
+          "y": 560.5736745762142
+        },
+        "data": {
+          "label": "COMPANY_LOCATION",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "66e306b2-e022-4884-baf7-ba25a662d8db",
+              "name": "fk_RENTALCOMPANY",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "716dd664-aad2-4e8c-a31d-7c976afe7d68",
+                "sourceTableId": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef",
+                "columns": [
+                  {
+                    "id": "fk_4228b605-0801-4061-8df0-ba32c052890a",
+                    "name": "company_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "b480f18a-04e5-4667-b7d4-cb26c11b6fcb",
+              "name": "fk_LOCATION",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "eddbf9d4-b2ba-47f9-92b7-5fe9acedd0cc",
+                "sourceTableId": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+                "columns": [
+                  {
+                    "id": "fk_29f78406-a5ab-4b0f-a467-56dda22fb13e",
+                    "name": "location_id",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            }
+          ],
+          "numberOfGroups": 0,
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 76
+        },
+        "selected": false,
+        "dragging": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef->ff1bef12-2d55-4522-be0f-5377b52576e2_1f455bba-0807-42b4-abdf-b68546c657b2",
+        "type": "Relational",
+        "source": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef",
+        "targetHandle": "foreign-key-handle-1f455bba-0807-42b4-abdf-b68546c657b2",
+        "target": "ff1bef12-2d55-4522-be0f-5377b52576e2",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "1f455bba-0807-42b4-abdf-b68546c657b2",
+            "sourceTableId": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef",
+            "columns": [
+              {
+                "id": "fk_4228b605-0801-4061-8df0-ba32c052890a",
+                "name": "company_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "0525bb54-c0f0-4aa8-9781-18b05a64792a->e3a70d9e-9984-4b16-825a-e55db0da3b49_9103b803-3fd2-4b55-a1e4-acc82cfd890a",
+        "type": "Relational",
+        "source": "0525bb54-c0f0-4aa8-9781-18b05a64792a",
+        "targetHandle": "foreign-key-handle-9103b803-3fd2-4b55-a1e4-acc82cfd890a",
+        "target": "e3a70d9e-9984-4b16-825a-e55db0da3b49",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "9103b803-3fd2-4b55-a1e4-acc82cfd890a",
+            "sourceTableId": "0525bb54-c0f0-4aa8-9781-18b05a64792a",
+            "columns": [
+              {
+                "id": "fk_6ac5b5c8-77c2-4b56-8217-de4dfd06c681",
+                "name": "booking_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "ff1bef12-2d55-4522-be0f-5377b52576e2->0525bb54-c0f0-4aa8-9781-18b05a64792a_bd012147-094e-47bb-a5ee-a27edd1d67de",
+        "type": "Relational",
+        "source": "ff1bef12-2d55-4522-be0f-5377b52576e2",
+        "targetHandle": "foreign-key-handle-bd012147-094e-47bb-a5ee-a27edd1d67de",
+        "target": "0525bb54-c0f0-4aa8-9781-18b05a64792a",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "bd012147-094e-47bb-a5ee-a27edd1d67de",
+            "sourceTableId": "ff1bef12-2d55-4522-be0f-5377b52576e2",
+            "columns": [
+              {
+                "id": "fk_23449e92-f95e-472a-9ab1-703a1671754a",
+                "name": "car_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "8ff60b2f-ab3a-44ad-a957-0080302f835c->0525bb54-c0f0-4aa8-9781-18b05a64792a_e366a648-1f14-4f7f-be1c-deebc6d6b11c",
+        "type": "Relational",
+        "source": "8ff60b2f-ab3a-44ad-a957-0080302f835c",
+        "targetHandle": "foreign-key-handle-e366a648-1f14-4f7f-be1c-deebc6d6b11c",
+        "target": "0525bb54-c0f0-4aa8-9781-18b05a64792a",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "e366a648-1f14-4f7f-be1c-deebc6d6b11c",
+            "sourceTableId": "8ff60b2f-ab3a-44ad-a957-0080302f835c",
+            "columns": [
+              {
+                "id": "fk_00942064-2f4a-4ec7-92d6-33ea9af3f1ea",
+                "name": "tourist_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b->0525bb54-c0f0-4aa8-9781-18b05a64792a_bfd824c1-f269-4433-9350-5863d08cf40b",
+        "type": "Relational",
+        "source": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+        "targetHandle": "foreign-key-handle-bfd824c1-f269-4433-9350-5863d08cf40b",
+        "target": "0525bb54-c0f0-4aa8-9781-18b05a64792a",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "bfd824c1-f269-4433-9350-5863d08cf40b",
+            "sourceTableId": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+            "columns": [
+              {
+                "id": "fk_29f78406-a5ab-4b0f-a467-56dda22fb13e",
+                "name": "location_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b->0525bb54-c0f0-4aa8-9781-18b05a64792a_3d1c127f-748c-4f44-9ca2-0af3a24e172b",
+        "type": "Relational",
+        "source": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+        "targetHandle": "foreign-key-handle-3d1c127f-748c-4f44-9ca2-0af3a24e172b",
+        "target": "0525bb54-c0f0-4aa8-9781-18b05a64792a",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "3d1c127f-748c-4f44-9ca2-0af3a24e172b",
+            "sourceTableId": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+            "columns": [
+              {
+                "id": "fk_29f78406-a5ab-4b0f-a467-56dda22fb13e",
+                "name": "location_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef->86573e46-ca2a-489a-a1e0-3dbfa1e41bf4_716dd664-aad2-4e8c-a31d-7c976afe7d68",
+        "type": "Relational",
+        "source": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef",
+        "targetHandle": "foreign-key-handle-716dd664-aad2-4e8c-a31d-7c976afe7d68",
+        "target": "86573e46-ca2a-489a-a1e0-3dbfa1e41bf4",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "716dd664-aad2-4e8c-a31d-7c976afe7d68",
+            "sourceTableId": "7fcd0e5c-2512-4b3c-9ada-50f01edfecef",
+            "columns": [
+              {
+                "id": "fk_4228b605-0801-4061-8df0-ba32c052890a",
+                "name": "company_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b->86573e46-ca2a-489a-a1e0-3dbfa1e41bf4_eddbf9d4-b2ba-47f9-92b7-5fe9acedd0cc",
+        "type": "Relational",
+        "source": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+        "targetHandle": "foreign-key-handle-eddbf9d4-b2ba-47f9-92b7-5fe9acedd0cc",
+        "target": "86573e46-ca2a-489a-a1e0-3dbfa1e41bf4",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "eddbf9d4-b2ba-47f9-92b7-5fe9acedd0cc",
+            "sourceTableId": "d1201a15-2375-4a56-abb3-0bbb5cb5b93b",
+            "columns": [
+              {
+                "id": "fk_29f78406-a5ab-4b0f-a467-56dda22fb13e",
+                "name": "location_id",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "viewport": {
+      "x": 327.3148229083964,
+      "y": -7.29442222456953,
+      "zoom": 0.5
+    }
+  },
+  "name": "RentCars (1) (1)-Relational Schema",
+  "folder": {
+    "name": "RentCars",
+    "folderType": 2,
+    "parentFolder": {
+      "depth": 0,
+      "id": 264856,
+      "name": "Diagrams",
+      "folderType": 1
+    },
+    "depth": 1,
+    "id": 264858
+  },
+  "id": 358693,
+  "updatedAtTimestamp": 1773955481
+}
