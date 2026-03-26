@@ -74,7 +74,7 @@ INSERT INTO COMPANY_LOCATION VALUES
 (20,3),(20,4);
 
 -- =====================================
--- TOURIST (20)
+-- TOURIST
 -- =====================================
 INSERT INTO TOURIST VALUES
 (1,'John','Doe','john@mail.com','111','USA','A1001'),
