@@ -71,7 +71,7 @@ The system interface was created using AI Studio:
 
 ---
 
-## Data Insertion Methods  (exept insertTables.sql)
+## Data Insertion Methods  
 
 ### 1. Python Data Insertion Script
 📜[Populate Database Script](phase1/Programming/populate_pg_db.py)
@@ -80,12 +80,19 @@ The system interface was created using AI Studio:
 
 ---
 
-### 2. SQL Insert Scripts  
-Manual and generated SQL scripts were used:
+### 2. Mockaroo (SQL Inserts)
+📜[Insert Data into CAR Table](phase1/mockarooFiles/CAR.sql)
+📜[Insert Data into TOURIST Table](phase1/mockarooFiles/TOURIST.sql)
+📜[Insert Data into RENTAL_COMPANY Table](phase1/mockarooFiles/RENTAL_COMPANY.sql)
 
-📜 `insertTables.sql`
 
-Used to insert structured and relational data into all tables  
+
+<img width="1401" height="508" alt="צילום מסך 2026-03-27 162641" src="https://github.com/user-attachments/assets/a11517ff-a492-4aa0-aeca-dd57d5ab8ded" />
+
+<img width="1472" height="779" alt="צילום מסך 2026-03-27 162758" src="https://github.com/user-attachments/assets/3383b0ef-d29a-41bb-a1a3-a1bd3ad7f79f" />
+
+
+
 
 ---
 
