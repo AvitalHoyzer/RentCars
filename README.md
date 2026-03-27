@@ -73,8 +73,9 @@ The system interface was created using AI Studio:
 
 ## Data Insertion Methods  (exept insertTables.sql)
 
-### 1. Python Insert Script
-[Insert Script](phase1/Programing/populate_pg_db.py)
+### 1. Python Data Insertion Script
+📜[Populate Database Script](phase1/Programming/populate_pg_db.py)
+
 <img width="1205" height="936" alt="צילום מסך 2026-03-27 160754" src="https://github.com/user-attachments/assets/a4dca697-4263-4f2f-bb19-936eae152319" />
 
 ---
