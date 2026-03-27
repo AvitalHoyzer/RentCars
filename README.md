@@ -51,8 +51,9 @@ The system interface was created using AI Studio:
 
 ---
 
-## ERD (Entity-Relationship Diagram)  
-![ERD Diagram](./phase1/ERDandDSDFiles/erdplus- ERD.png)
+## ERD (Entity-Relationship Diagram) 
+<img width="3744" height="1707" alt="erdplus- ERD" src="https://github.com/user-attachments/assets/d50a9b2a-0b3a-402d-b2d7-1c26c2389b5c" />
+
 
 ## DSD (Data Structure Diagram)  
 
