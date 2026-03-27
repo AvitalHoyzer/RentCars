@@ -107,9 +107,11 @@ The system interface was created using AI Studio:
 
 📜[csv for RENTAL_COMPANY Table](phase1/csvFiles/rentalcompanyMOCK_DATA.csv)
 
-<img width="1516" height="544" alt="צילום מסך 2026-03-27 162543" src="https://github.com/user-attachments/assets/395bb9b8-d5e1-4199-ad5a-a015030b55ff" />
+<img width="1404" height="533" alt="צילום מסך 2026-03-27 173554" src="https://github.com/user-attachments/assets/f67b9c81-00a4-4cb1-bc7f-bed032cc4174" />
 
+<img width="1047" height="821" alt="צילום מסך 2026-03-27 173744" src="https://github.com/user-attachments/assets/9344e476-cfb8-47d2-b5f2-56b177122ee4" />
 
+<img width="1002" height="378" alt="צילום מסך 2026-03-27 173753" src="https://github.com/user-attachments/assets/7733213b-12df-4fb8-bc25-254c39d7bc9e" />
 
 ---
 
