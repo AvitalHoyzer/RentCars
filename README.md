@@ -82,15 +82,16 @@ The system interface was created using AI Studio:
 
 ### 2. Mockaroo (SQL Inserts)
 📜[Insert Data into CAR Table](phase1/mockarooFiles/CAR.sql)
+
 📜[Insert Data into TOURIST Table](phase1/mockarooFiles/TOURIST.sql)
+
 📜[Insert Data into RENTAL_COMPANY Table](phase1/mockarooFiles/RENTAL_COMPANY.sql)
 
 
+<img width="1894" height="864" alt="צילום מסך 2026-03-26 201918" src="https://github.com/user-attachments/assets/ce7284cd-16c3-4afc-972e-a924d381c903" />
+<img width="1885" height="479" alt="צילום מסך 2026-03-26 201925" src="https://github.com/user-attachments/assets/5480da64-473b-4807-9da3-64cfe31d55b9" />
 
-<img width="1401" height="508" alt="צילום מסך 2026-03-27 162641" src="https://github.com/user-attachments/assets/a11517ff-a492-4aa0-aeca-dd57d5ab8ded" />
-
-<img width="1472" height="779" alt="צילום מסך 2026-03-27 162758" src="https://github.com/user-attachments/assets/3383b0ef-d29a-41bb-a1a3-a1bd3ad7f79f" />
-
+<img width="1474" height="766" alt="צילום מסך 2026-03-26 202024" src="https://github.com/user-attachments/assets/b808d8bd-39f7-4682-98df-aa2474e6d3aa" />
 
 
 
