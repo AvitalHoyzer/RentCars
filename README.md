@@ -1,18 +1,18 @@
 # Rent Cars System  
+
+---
 Avital Hoyzer  
 Moriya Kalfon
----
 
 ## Table of Contents
-- Phase 1: Design and Build the Database  
-  - Introduction  
-  - AI Screens  
-  - ERD (Entity-Relationship Diagram)  
-  - DSD (Data Structure Diagram)  
-  - Design Decisions  
-  - SQL Scripts  
-  - Data Insertion Methods  
-  - Backup & Restore  
+- [Phase 1: Design and Build the Database](#phase-1-design-and-build-the-database)  
+  - [Introduction](#introduction)  
+  - [AI Screens](#ai-screens)  
+  - [ERD (Entity-Relationship Diagram)](#erd-entity-relationship-diagram)  
+  - [DSD (Data Structure Diagram)](#dsd-data-structure-diagram)   
+  - [SQL Scripts](#sql-scripts)  
+  - [Data Insertion Methods](#data-insertion-methods)  
+  - [Backup & Restore](#backup--restore)  
 
 ---
 
@@ -56,52 +56,22 @@ The system interface was created using AI Studio:
 
 
 ## DSD (Data Structure Diagram)  
-
-![DSD Diagram](./phase1/ERDandDSDFiles/erdplus- DSD.png)
-
----
-
-## Design Decisions  
-
-Several important design decisions were made:
-
-- **Separation between Tourist and Booking**  
-  Each tourist can make multiple bookings → one-to-many relationship  
-
-- **Car belongs to Rental Company**  
-  Each car is owned by exactly one company  
-
-- **Company and Location (Many-to-Many)**  
-  Implemented using `company_location` table  
-
-- **Booking includes locations**  
-  Pickup and return locations are stored as foreign keys  
-
-- **Review depends on Booking**  
-  Each booking can have at most one review  
-
-- **Normalization**  
-  The database is normalized to reduce redundancy and improve consistency  
+<img width="3744" height="1707" alt="erdplus - DSD" src="https://github.com/user-attachments/assets/e7f026b4-8136-47bb-a353-24059e539326" />
 
 ---
+
+
 
 ## SQL Scripts  
 
-### Create Tables Script  
-📜 `phase1/scripts/createTables.sql`
-
-### Insert Data Script  
-📜 `phase1/scripts/insertTables.sql`
-
-### Drop Tables Script  
-📜 `phase1/scripts/dropTables.sql`
-
-### Select All Script  
-📜 `phase1/scripts/selectAllTables.sql`
+📜 [Create Tables Script](phase1/scripts/createTables.sql)
+📜 [Insert Tables Script](phase1/scripts/insertTables.sql)
+📜 [Drop Tables Script](phase1/scripts/dropTables.sql)
+📜 [Select All Script](phase1/scripts/selectAllTables.sql)
 
 ---
 
-## Data Insertion Methods  
+## Data Insertion Methods  (exept insertTables.sql)
 
 ### 1. Mockaroo (CSV Files)  
 Used to generate realistic data for tables:
@@ -144,8 +114,3 @@ The backup was successfully restored using pgAdmin restore functionality.
 (Add screenshot here)
 
 ---
-
-## Notes  
-- The system was developed using PostgreSQL  
-- Managed through pgAdmin  
-- Running inside Docker environment  
