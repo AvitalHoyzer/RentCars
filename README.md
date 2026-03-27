@@ -67,7 +67,7 @@ The system interface was created using AI Studio:
 📜 [Create Tables Script](phase1/scripts/createTables.sql)
 📜 [Insert Tables Script](phase1/scripts/insertTables.sql)
 📜 [Drop Tables Script](phase1/scripts/dropTables.sql)
-📜 [Select All Script](phase1/scripts/selectAllTables.sql)
+📜 [Select All Script](phase1/scripts/selectAll.sql)
 
 ---
 
