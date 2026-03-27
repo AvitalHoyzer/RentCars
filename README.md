@@ -65,8 +65,11 @@ The system interface was created using AI Studio:
 ## SQL Scripts  
 
 📜 [Create Tables Script](phase1/scripts/createTables.sql)
+
 📜 [Insert Tables Script](phase1/scripts/insertTables.sql)
+
 📜 [Drop Tables Script](phase1/scripts/dropTables.sql)
+
 📜 [Select All Script](phase1/scripts/selectAll.sql)
 
 ---
@@ -81,14 +84,14 @@ The system interface was created using AI Studio:
 ---
 
 ### 2. Mockaroo (SQL Inserts)
-📜[Insert Data into CAR Table](phase1/mockarooFiles/CAR.sql)
 
 📜[Insert Data into TOURIST Table](phase1/mockarooFiles/TOURIST.sql)
 
 📜[Insert Data into RENTAL_COMPANY Table](phase1/mockarooFiles/RENTAL_COMPANY.sql)
 
+📜[Insert Data into CAR Table](phase1/mockarooFiles/CAR.sql)
 
-<img width="1894" height="864" alt="צילום מסך 2026-03-26 201918" src="https://github.com/user-attachments/assets/ce7284cd-16c3-4afc-972e-a924d381c903" />
+<img width="1894" height="565" alt="צילום מסך 2026-03-26 201918" src="https://github.com/user-attachments/assets/a118afbd-8ff1-4b48-b8d5-74110c3f7cc2" />
 <img width="1885" height="479" alt="צילום מסך 2026-03-26 201925" src="https://github.com/user-attachments/assets/5480da64-473b-4807-9da3-64cfe31d55b9" />
 
 <img width="1474" height="766" alt="צילום מסך 2026-03-26 202024" src="https://github.com/user-attachments/assets/b808d8bd-39f7-4682-98df-aa2474e6d3aa" />
