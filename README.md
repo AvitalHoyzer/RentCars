@@ -45,7 +45,7 @@ This database provides a structured solution for:
 ## AI Screens  
 The system interface was created using AI Studio:
 
-🔗 https://ai.studio/apps/0398fed9-b445-44e4-9e85-60cfa2ea6518  
+🔗 https://ai.studio/apps/eab85170-5b5d-4cef-99a2-307720ccec58 
 
 
 
