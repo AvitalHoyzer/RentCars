@@ -132,6 +132,6 @@ The database backup was created using pgAdmin.
 ### Restore  
 The backup was successfully restored using pgAdmin restore functionality.
 
-(Add screenshot here)
+<img width="3402" height="1052" alt="database_restore" src="https://github.com/user-attachments/assets/0a5e1d40-7a49-4360-a625-648a92c06cf0" />
 
 ---
