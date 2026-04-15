@@ -126,6 +126,7 @@ The database backup was created using pgAdmin.
 
 <img width="854" height="390" alt="צילום מסך 2026-03-27 174108" src="https://github.com/user-attachments/assets/4d138d01-51ff-45aa-b7c1-b81c972c7f03" />
 
+<img width="1766" height="902" alt="צילום מסך 2026-04-15 144521" src="https://github.com/user-attachments/assets/8705e65b-b889-4c4a-8027-256b38d33e98" />
 
 ---
 
