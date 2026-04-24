@@ -320,6 +320,8 @@ To resolve this without deleting important historical booking data, we updated t
 ## Constraints (Data Integrity)
 Implementation of business rules using the `ALTER TABLE` command to ensure data quality and prevent human errors.
 
+📜 [Constraints](phase2/Constraints.sql)
+
 ### Constraint 1: Tourist Phone Length
 * **Description:** Ensuring phone numbers are at least 7 digits long.
 
@@ -347,6 +349,8 @@ Implementation of business rules using the `ALTER TABLE` command to ensure data 
 
 ## Transactions (Commit & Rollback)
 Demonstrating how transactions maintain database consistency and allow recovery from errors.
+
+📜 [Rollback&Commit](phase2/RollbackCommit.sql)
 
 ### Rollback Demo: Recovering from Mistakes
 
@@ -397,6 +401,8 @@ Verification: Verified the change persisted after the transaction closed.
 
 ## Indexes & Performance Optimization
 To optimize the system's performance, we implemented B-Tree indexes on frequently searched and sorted columns. We used EXPLAIN ANALYZE to measure the execution time before and after the optimization.
+
+📜 [Indexes](phase2/Index.sql)
 
 ### Index 1: Sorting by Price (idx_car_price_sort)
 
