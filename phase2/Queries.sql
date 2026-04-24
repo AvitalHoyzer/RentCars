@@ -210,9 +210,11 @@ DELETE FROM REVIEW
 WHERE rating = 1 AND comment IS NULL;
 
 -- Query 2: Decommission old vehicles
--- GUI: Fleet management to remove cars from 2015 or older (if not currently rented).
+-- GUI: Fleet management to remove cars from 2002 or older (if not currently rented).
 DELETE FROM CAR 
-WHERE year < 2016 AND status != 'Rented';
+WHERE year < 2003 
+  AND status != 'Rented'
+  AND car_id NOT IN (SELECT DISTINCT car_id FROM BOOKING);
 
 -- Query 3: Remove inactive locations
 -- GUI: Database cleanup for locations that don't have any associated rental branches.
