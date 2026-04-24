@@ -149,12 +149,12 @@ This phase focuses on implementing advanced SQL logic, maintaining data integrit
 
 ---
 
- ### Complex SELECT Queries (Double Implementation)
+ ## Complex SELECT Queries (Double Implementation)
 For each query, two different approaches were implemented and compared for efficiency.
 
 (The order in the screenshots may be different, but it's the same data between two query options.)
 
-#### Query 1: Find Available Cars in Jerusalem
+### Query 1: Find Available Cars in Jerusalem
 Description: שליפת כל הרכבים הזמינים להשכרה בעיר ירושלים עבור דף החיפוש הראשי.
 
 Approach A (JOIN): Standard and readable.
@@ -169,7 +169,7 @@ Efficiency Analysis: EXISTS is more efficient for "existence" checks because it 
 <img width="1487" height="784" alt="צילום מסך 2026-04-24 162346" src="https://github.com/user-attachments/assets/7715877a-58a1-483a-bd9c-e66dde0a6669" />
 
 
-#### Query 2: Loyal Customers (5+ Bookings in 2026)
+### Query 2: Loyal Customers (5+ Bookings in 2026)
 Description: זיהוי תיירים שביצעו יותר מ-5 הזמנות במהלך שנת 2026 עבור תוכנית נאמנות.
 
 Approach A (JOIN & HAVING): Required if we want to display the actual count.
@@ -183,7 +183,7 @@ Efficiency Analysis: JOIN is better if the GUI needs to display the total_bookin
 <img width="1495" height="790" alt="צילום מסך 2026-04-24 162643" src="https://github.com/user-attachments/assets/9c43d7cb-32e5-4c9c-977b-7eccd42d3718" />
 <img width="1479" height="790" alt="צילום מסך 2026-04-24 162627" src="https://github.com/user-attachments/assets/91402e7d-3f19-4e80-98e7-2e8c24517fe8" />
 
-#### Query 3: Recommended Cars (Rating 4+)
+### Query 3: Recommended Cars (Rating 4+)
 Description: שליפת רכבים שזכו לדירוג ממוצע של 4 ומעלה עבור מסך "רכבים מומלצים".
 
 Approach A (Double JOIN & HAVING): Direct approach.
@@ -198,7 +198,7 @@ Efficiency Analysis: Approach B can be more efficient if the subquery significan
 <img width="1139" height="804" alt="צילום מסך 2026-04-24 163123" src="https://github.com/user-attachments/assets/ea911ca0-e3ad-463b-9b90-0e5a4af35eae" />
 
 
-#### Query 4: Top 3 Most Booked Cars in 2026
+### Query 4: Top 3 Most Booked Cars in 2026
 Description: הצגת שלושת הרכבים המבוקשים ביותר (הכי הרבה הזמנות) בשנת 2026.
 
 Approach A (JOIN & GROUP BY): Simplest implementation.
@@ -213,10 +213,10 @@ Efficiency Analysis: Approach B is faster when the BOOKING table is massive, as 
 <img width="1298" height="766" alt="צילום מסך 2026-04-24 163431" src="https://github.com/user-attachments/assets/290f1c4e-39df-44bd-8895-36a8adcd9b1b" />
 
 
-### Additional SELECT Queries
+## Additional SELECT Queries
 ---
 
-#### Query 5: Personal Booking History
+### Query 5: Personal Booking History
 Description: היסטוריית הזמנות מפורטת עבור תייר ספציפי (למסך "הזמנות שלי"). משתמש ב-LEFT JOIN כדי להציג הזמנות גם אם טרם הושארה להן ביקורת.
 
 📜 [Query5](phase2/Queries.sql)
@@ -224,28 +224,28 @@ Description: היסטוריית הזמנות מפורטת עבור תייר ספ
 <img width="1426" height="761" alt="צילום מסך 2026-04-24 163642" src="https://github.com/user-attachments/assets/57caf8c0-62bc-441a-910c-2f8019c148a4" />
 
 
-#### Query 6: Monthly Revenue Report 2026
+### Query 6: Monthly Revenue Report 2026
 Description: דוח הכנסות חודשי מפורט עבור שנת 2026, כולל כמות השכרות וסך הכנסה חודשית.
 
 📜 [Query6](phase2/Queries.sql)
 
 <img width="1189" height="800" alt="צילום מסך 2026-04-24 163744" src="https://github.com/user-attachments/assets/d13a7a75-e733-4d36-a552-1f157cdc2972" />
 
-#### Query 7: Top 3 most popular pickup locations
+### Query 7: Top 3 most popular pickup locations
 Description: זיהוי הערים שבהן מתבצעות הכי הרבה השכרות כדי לדעת איפה כדאי להגדיל את צי הרכבים.
 
 📜 [Query7](phase2/Queries.sql)
 
 <img width="893" height="758" alt="צילום מסך 2026-04-24 164059" src="https://github.com/user-attachments/assets/699be3f7-5da5-45f1-aef1-e0fba216ba38" />
 
-#### Query 8: Most recommended rental company (Highest average rating)
+### Query 8: Most recommended rental company (Highest average rating)
 Description: שליפת החברה בעלת ממוצע הדירוגים הגבוה ביותר (בתנאי שיש לה לפחות 2 ביקורות כדי להבטיח אמינות).
 
 📜 [Query8](phase2/Queries.sql)
 
 <img width="1225" height="776" alt="צילום מסך 2026-04-24 164242" src="https://github.com/user-attachments/assets/b2d94798-62c6-4f4a-a723-e3ab8f281c3f" />
 
-#### Query 9: Budget-friendly cars (Price <= 70) with location details
+### Query 9: Budget-friendly cars (Price <= 70) with location details
 Description: סינון רכבים שמחירם היומי נמוך מ-70, כולל הצגת שם החברה והעיר שבה הם נמצאים.
 
 📜 [Query9](phase2/Queries.sql)
@@ -254,16 +254,16 @@ Description: סינון רכבים שמחירם היומי נמוך מ-70, כו�
 
 ---
 
-### UPDATE & DELETE Operations
+## UPDATE & DELETE Operations
 
-#### Update 1: Seasonal Price Hike (SUV)
+### Update 1: Seasonal Price Hike (SUV)
 * **Description:** העלאת מחיר יומית ב-10% לכל רכבי ה-SUV לטובת עונת השיא.
 
 <img width="1479" height="764" alt="צילום מסך 2026-04-24 171311" src="https://github.com/user-attachments/assets/d7e7e449-f956-4418-b253-a1843bd9be62" />
 
 <img width="1491" height="771" alt="צילום מסך 2026-04-24 171355" src="https://github.com/user-attachments/assets/378451c8-ae0e-4675-8e92-12f13aa6ac51" />
 
-#### Update 2: Auto-cancel Expired Bookings
+### Update 2: Auto-cancel Expired Bookings
 * **Description:** עדכון סטטוס ל'מבוטל' עבור הזמנות שמועד האיסוף שלהן עבר והן טרם התחילו.
 
 <img width="1490" height="774" alt="צילום מסך 2026-04-24 172045" src="https://github.com/user-attachments/assets/07296779-2fa6-4f7d-9c9d-935e323ca67e" />
@@ -272,7 +272,7 @@ Description: סינון רכבים שמחירם היומי נמוך מ-70, כו�
 
 <img width="1494" height="702" alt="צילום מסך 2026-04-24 172150" src="https://github.com/user-attachments/assets/ad2a4a9c-0183-4cb4-9a0a-c2f8b63e51c0" />
 
-#### Update 3: Update company contact information
+### Update 3: Update company contact information
 * **Description:** עדכון פרטי קשר – עדכון מספר הטלפון של חברת 'Hertz' במערכת הניהול.
 
 <img width="1180" height="441" alt="צילום מסך 2026-04-24 172556" src="https://github.com/user-attachments/assets/b12d5869-aace-4c9d-af14-46de0bd9137d" />
@@ -281,14 +281,14 @@ Description: סינון רכבים שמחירם היומי נמוך מ-70, כו�
 
 --- 
 
-#### Delete 1: Remove Low-Quality Reviews
+### Delete 1: Remove Low-Quality Reviews
 * **Description:** ניקוי נתונים – מחיקת ביקורות עם דירוג 1 כוכבים שאינן כוללות תגובה טקסטואלית, כדי לשמור על דאטה איכותי.
 
 <img width="1329" height="771" alt="צילום מסך 2026-04-24 173659" src="https://github.com/user-attachments/assets/796ebd40-6a4a-4f01-b21e-a9d8648e7239" />
 
 <img width="989" height="528" alt="צילום מסך 2026-04-24 173721" src="https://github.com/user-attachments/assets/520b9d11-2853-4008-a4f0-18027c061171" />
 
-#### Delete 2: Decommission Old Vehicles
+### Delete 2: Decommission Old Vehicles
 * **Description:** רענון צי הרכבים – מחיקת רכבים משנת 2002 ומטה, בתנאי שהם אינם מושכרים כרגע (סטטוס שונה מ-'Rented').
   
 <img width="1483" height="744" alt="צילום מסך 2026-04-24 174758" src="https://github.com/user-attachments/assets/c35531df-186a-4f3b-b3eb-1ae2b9607d0b" />
@@ -297,15 +297,16 @@ Description: סינון רכבים שמחירם היומי נמוך מ-70, כו�
 
 
 
-The Challenge (Foreign Key Violation):
+#### The Challenge (Foreign Key Violation):
 
 Initially, a simple DELETE command failed because of Referential Integrity. In our database schema, the CAR table is linked to the BOOKING table via a Foreign Key (car_id). PostgreSQL prevents the deletion of a car if there are existing booking records associated with it. Deleting such a car would leave "orphaned" bookings, breaking the data consistency.
 
-The Solution:
+#### The Solution:
+
 To resolve this without deleting important historical booking data, we updated the query to include a subquery using the NOT IN operator.
 
 
-#### Delete 3: Remove Inactive Locations
+### Delete 3: Remove Inactive Locations
 * **Description:** תחזוקת מיקומים – מחיקת מיקומים (ערים) שאינם מקושרים לאף סניף של חברת השכרה.
 
 <img width="1447" height="785" alt="צילום מסך 2026-04-24 175824" src="https://github.com/user-attachments/assets/36ae0f01-d646-41bd-b568-3965c8f24dad" />
@@ -314,10 +315,86 @@ To resolve this without deleting important historical booking data, we updated t
 <img width="1407" height="776" alt="צילום מסך 2026-04-24 175901" src="https://github.com/user-attachments/assets/f3c15ffa-7f85-49df-9f41-de8f27c23cb6" />
 
 
+---
+
+## Constraints (Data Integrity)
+Implementation of business rules using the `ALTER TABLE` command to ensure data quality and prevent human errors.
+
+### Constraint 1: Tourist Phone Length
+* **Description:** Ensuring phone numbers are at least 7 digits long.
+
+<img width="1472" height="800" alt="צילום מסך 2026-04-24 150159" src="https://github.com/user-attachments/assets/60142add-3078-4519-b4a9-36ee71c69f82" />
+
+<img width="1180" height="499" alt="צילום מסך 2026-04-24 150243" src="https://github.com/user-attachments/assets/711e3f31-27c0-45c9-8471-fbc43239668e" />
 
 
+### Constraint 2: Email Format Validation
+* **Description:** Enforcing a basic email format by requiring at least one dot (.) in the email string.
+
+<img width="1489" height="800" alt="צילום מסך 2026-04-24 150343" src="https://github.com/user-attachments/assets/faa6a6cd-fd1c-404c-871f-6babde43f8df" />
+
+<img width="1235" height="599" alt="צילום מסך 2026-04-24 150504" src="https://github.com/user-attachments/assets/b334ad28-7132-4e71-8ff1-4ac092fdc8cc" />
 
 
+### Constraint 3: Minimum Car Price Threshold
+* **Description:** A business rule to ensure daily rental prices are not set below 50 ILS.
 
+<img width="1467" height="799" alt="צילום מסך 2026-04-24 150548" src="https://github.com/user-attachments/assets/2de8b078-c33f-47de-a1d1-3a0d99ad5276" />
+
+<img width="1511" height="613" alt="צילום מסך 2026-04-24 150638" src="https://github.com/user-attachments/assets/32defb02-1544-4a09-83de-a7d205552648" />
+
+---
+
+## Transactions (Commit & Rollback)
+Demonstrating how transactions maintain database consistency and allow recovery from errors.
+
+### Rollback Demo: Recovering from Mistakes
+
+#### Scenario: 
+An accidental price hike where SUV prices were doubled.
+
+#### Process:
+Before: Showed original prices
+
+<img width="1128" height="764" alt="צילום מסך 2026-04-24 144633" src="https://github.com/user-attachments/assets/e4a10736-fb24-4d82-bfa5-7f3a1ce95200" />
+
+Action: Updated prices within a BEGIN block.
+
+Intermediate: Showed new prices 
+
+<img width="1121" height="753" alt="צילום מסך 2026-04-24 144723" src="https://github.com/user-attachments/assets/700d83ca-675b-46f3-ac08-20840bf43e61" />
+
+Undo: Executed ROLLBACK.
+
+After: Verified prices returned to original.
+
+<img width="1102" height="673" alt="צילום מסך 2026-04-24 144817" src="https://github.com/user-attachments/assets/4415b740-0160-4503-aa94-8deccfc8dfce" />
+
+---
+
+### Commit Demo: Permanent Changes
+
+#### Scenario: 
+Updating a car status to 'Maintenance' for the service team.
+
+#### Process:
+
+Before: Showed original prices
+
+<img width="1082" height="502" alt="צילום מסך 2026-04-24 144958" src="https://github.com/user-attachments/assets/3377cfcf-72a7-465e-ae56-5ba6139afaac" />
+
+
+Action: Changed status within a BEGIN block.
+
+<img width="1076" height="493" alt="צילום מסך 2026-04-24 145034" src="https://github.com/user-attachments/assets/66bb7fa8-375d-439e-9cca-8a87353dd121" />
+
+Finalize: Executed COMMIT.
+
+Verification: Verified the change persisted after the transaction closed.
+
+<img width="1255" height="730" alt="צילום מסך 2026-04-24 145051" src="https://github.com/user-attachments/assets/fddede54-bf54-4d7d-8041-46cedaac695c" />
+
+
+## Indexes & Performance Optimization
 
 
