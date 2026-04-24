@@ -13,7 +13,14 @@ Moriya Kalfon
   - [SQL Scripts](#sql-scripts)  
   - [Data Insertion Methods](#data-insertion-methods)  
   - [Backup & Restore](#backup--restore)  
-
+- [Phase 2: Database Management, Advanced Queries & Performance](#phase-2-database-management-advanced-queries--performance)
+  - [Complex SELECT Queries (Double Implementation)](#complex-select-queries-double-implementation)
+  - [Additional SELECT Queries](#additional-select-queries)
+  - [UPDATE & DELETE Operations](#update--delete-operations)
+  - [Constraints (Data Integrity)](#constraints-data-integrity)
+  - [Transactions (Commit & Rollback)](#transactions-commit--rollback)
+  - [Indexes & Performance Optimization](#indexes--performance-optimization)
+    
 ---
 
 # Phase 1: Design and Build the Database  
@@ -140,8 +147,10 @@ The backup was successfully restored using pgAdmin restore functionality.
 # Phase 2: Database Management, Advanced Queries & Performance
 This phase focuses on implementing advanced SQL logic, maintaining data integrity, and optimizing the database performance.
 
+
  ### Complex SELECT Queries (Double Implementation)
 For each query, two different approaches were implemented and compared for efficiency.
+
 (The order in the screenshots may be different, but it's the same data between two query options.)
 
 ### Query 1: Find Available Cars in Jerusalem
@@ -153,7 +162,7 @@ Approach B (EXISTS): Often faster as it stops at the first match found in the su
 
 Efficiency Analysis: EXISTS is more efficient for "existence" checks because it stops at the first match (Short-circuit), whereas JOIN creates a temporary table of all matches before filtering.
 
-📜 [Query1](phase1/scripts/createTables.sql)
+📜 [Query1](phase2/Queries.sql)
 
 <img width="1496" height="761" alt="צילום מסך 2026-04-24 162203" src="https://github.com/user-attachments/assets/091177a4-8d50-43ba-934d-b1abfef3904f" />
 <img width="1487" height="784" alt="צילום מסך 2026-04-24 162346" src="https://github.com/user-attachments/assets/7715877a-58a1-483a-bd9c-e66dde0a6669" />
@@ -168,7 +177,7 @@ Approach B (IN with Subquery): Efficient for simple membership filtering.
 
 Efficiency Analysis: JOIN is better if the GUI needs to display the total_bookings count. IN can be optimized by the engine when only the identity of the tourist is needed.
 
-[Query2](phase1/scripts/createTables.sql)
+[Query2](phase2/Queries.sql)
 
 <img width="1495" height="790" alt="צילום מסך 2026-04-24 162643" src="https://github.com/user-attachments/assets/9c43d7cb-32e5-4c9c-977b-7eccd42d3718" />
 <img width="1479" height="790" alt="צילום מסך 2026-04-24 162627" src="https://github.com/user-attachments/assets/91402e7d-3f19-4e80-98e7-2e8c24517fe8" />
@@ -182,7 +191,7 @@ Approach B (Subquery in FROM): Pre-calculates averages.
 
 Efficiency Analysis: Approach B can be more efficient if the subquery significantly reduces the number of rows (by grouping reviews) before joining with the larger CAR table.
 
-📜 [Query3](phase1/scripts/createTables.sql)
+📜 [Query3](phase2/Queries.sql)
 
 <img width="1088" height="783" alt="צילום מסך 2026-04-24 163144" src="https://github.com/user-attachments/assets/b3d74d6d-49b6-4320-bbf1-2e330f9aa71c" />
 <img width="1139" height="804" alt="צילום מסך 2026-04-24 163123" src="https://github.com/user-attachments/assets/ea911ca0-e3ad-463b-9b90-0e5a4af35eae" />
@@ -197,7 +206,7 @@ Approach B (Subquery in FROM): Aggregates data before joining.
 
 Efficiency Analysis: Approach B is faster when the BOOKING table is massive, as it reduces the join complexity by summarizing the IDs first.
 
-📜 [Query4](phase1/scripts/createTables.sql)
+📜 [Query4](phase2/Queries.sql)
 
 <img width="1472" height="781" alt="צילום מסך 2026-04-24 163459" src="https://github.com/user-attachments/assets/aeb3f95e-781f-423c-9d44-7f9ed10be1e0" />
 <img width="1298" height="766" alt="צילום מסך 2026-04-24 163431" src="https://github.com/user-attachments/assets/290f1c4e-39df-44bd-8895-36a8adcd9b1b" />
@@ -208,7 +217,7 @@ Efficiency Analysis: Approach B is faster when the BOOKING table is massive, as 
 ### Query 5: Personal Booking History
 Description: היסטוריית הזמנות מפורטת עבור תייר ספציפי (למסך "הזמנות שלי"). משתמש ב-LEFT JOIN כדי להציג הזמנות גם אם טרם הושארה להן ביקורת.
 
-📜 [Query5](phase1/scripts/createTables.sql)
+📜 [Query5](phase2/Queries.sql)
 
 <img width="1426" height="761" alt="צילום מסך 2026-04-24 163642" src="https://github.com/user-attachments/assets/57caf8c0-62bc-441a-910c-2f8019c148a4" />
 
@@ -216,30 +225,60 @@ Description: היסטוריית הזמנות מפורטת עבור תייר ספ
 ### Query 6: Monthly Revenue Report 2026
 Description: דוח הכנסות חודשי מפורט עבור שנת 2026, כולל כמות השכרות וסך הכנסה חודשית.
 
-📜 [Query6](phase1/scripts/createTables.sql)
+📜 [Query6](phase2/Queries.sql)
 
 <img width="1189" height="800" alt="צילום מסך 2026-04-24 163744" src="https://github.com/user-attachments/assets/d13a7a75-e733-4d36-a552-1f157cdc2972" />
 
 ### Query 7: Top 3 most popular pickup locations
 Description: זיהוי הערים שבהן מתבצעות הכי הרבה השכרות כדי לדעת איפה כדאי להגדיל את צי הרכבים.
 
-📜 [Query7](phase1/scripts/createTables.sql)
+📜 [Query7](phase2/Queries.sql)
 
 <img width="893" height="758" alt="צילום מסך 2026-04-24 164059" src="https://github.com/user-attachments/assets/699be3f7-5da5-45f1-aef1-e0fba216ba38" />
 
 ### Query 8: Most recommended rental company (Highest average rating)
 Description: שליפת החברה בעלת ממוצע הדירוגים הגבוה ביותר (בתנאי שיש לה לפחות 2 ביקורות כדי להבטיח אמינות).
 
-📜 [Query8](phase1/scripts/createTables.sql)
+📜 [Query8](phase2/Queries.sql)
 
 <img width="1225" height="776" alt="צילום מסך 2026-04-24 164242" src="https://github.com/user-attachments/assets/b2d94798-62c6-4f4a-a723-e3ab8f281c3f" />
 
 ### Query 9: Budget-friendly cars (Price <= 70) with location details
 Description: סינון רכבים שמחירם היומי נמוך מ-70, כולל הצגת שם החברה והעיר שבה הם נמצאים.
 
-📜 [Query9](phase1/scripts/createTables.sql)
+📜 [Query9](phase2/Queries.sql)
 
 <img width="1141" height="822" alt="צילום מסך 2026-04-24 164326" src="https://github.com/user-attachments/assets/035bd7b1-fd14-459c-8fcd-43847b0944f4" />
 
+---
 
-3. UPDATE & DELETE Operations
+### UPDATE & DELETE Operations
+
+#### Update 1: Seasonal Price Hike (SUV)
+* **Description:** העלאת מחיר יומית ב-10% לכל רכבי ה-SUV לטובת עונת השיא.
+
+<img width="1479" height="764" alt="צילום מסך 2026-04-24 171311" src="https://github.com/user-attachments/assets/d7e7e449-f956-4418-b253-a1843bd9be62" />
+
+<img width="1491" height="771" alt="צילום מסך 2026-04-24 171355" src="https://github.com/user-attachments/assets/378451c8-ae0e-4675-8e92-12f13aa6ac51" />
+
+#### Update 2: Auto-cancel Expired Bookings
+* **Description:** עדכון סטטוס ל'מבוטל' עבור הזמנות שמועד האיסוף שלהן עבר והן טרם התחילו.
+
+<img width="1490" height="774" alt="צילום מסך 2026-04-24 172045" src="https://github.com/user-attachments/assets/07296779-2fa6-4f7d-9c9d-935e323ca67e" />
+
+<img width="960" height="407" alt="צילום מסך 2026-04-24 172111" src="https://github.com/user-attachments/assets/7b771a70-c862-4f87-98e3-8ce9f6af151f" />
+
+<img width="1494" height="702" alt="צילום מסך 2026-04-24 172150" src="https://github.com/user-attachments/assets/ad2a4a9c-0183-4cb4-9a0a-c2f8b63e51c0" />
+
+#### Update 3: Update company contact information
+* **Description:** עדכון פרטי קשר – עדכון מספר הטלפון של חברת 'Hertz' במערכת הניהול.
+
+<img width="1180" height="441" alt="צילום מסך 2026-04-24 172556" src="https://github.com/user-attachments/assets/b12d5869-aace-4c9d-af14-46de0bd9137d" />
+
+<img width="1098" height="529" alt="צילום מסך 2026-04-24 172627" src="https://github.com/user-attachments/assets/91dda945-48aa-4271-bfe8-9c231314b502" />
+
+
+
+
+
+
