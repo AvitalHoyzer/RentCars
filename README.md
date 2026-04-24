@@ -279,6 +279,8 @@ Description: סינון רכבים שמחירם היומי נמוך מ-70, כו�
 
 <img width="1098" height="529" alt="צילום מסך 2026-04-24 172627" src="https://github.com/user-attachments/assets/91dda945-48aa-4271-bfe8-9c231314b502" />
 
+--- 
+
 #### Delete 1: Remove Low-Quality Reviews
 * **Description:** ניקוי נתונים – מחיקת ביקורות עם דירוג 1 כוכבים שאינן כוללות תגובה טקסטואלית, כדי לשמור על דאטה איכותי.
 
@@ -294,16 +296,22 @@ Description: סינון רכבים שמחירם היומי נמוך מ-70, כו�
 <img width="1438" height="771" alt="צילום מסך 2026-04-24 174904" src="https://github.com/user-attachments/assets/dd7bad11-e2c1-4e97-939d-ee299fd5165e" />
 
 
+
 The Challenge (Foreign Key Violation):
+
 Initially, a simple DELETE command failed because of Referential Integrity. In our database schema, the CAR table is linked to the BOOKING table via a Foreign Key (car_id). PostgreSQL prevents the deletion of a car if there are existing booking records associated with it. Deleting such a car would leave "orphaned" bookings, breaking the data consistency.
 
 The Solution:
 To resolve this without deleting important historical booking data, we updated the query to include a subquery using the NOT IN operator.
 
+
 #### Delete 3: Remove Inactive Locations
 * **Description:** תחזוקת מיקומים – מחיקת מיקומים (ערים) שאינם מקושרים לאף סניף של חברת השכרה.
 
-  
+<img width="1447" height="785" alt="צילום מסך 2026-04-24 175824" src="https://github.com/user-attachments/assets/36ae0f01-d646-41bd-b568-3965c8f24dad" />
+
+
+<img width="1407" height="776" alt="צילום מסך 2026-04-24 175901" src="https://github.com/user-attachments/assets/f3c15ffa-7f85-49df-9f41-de8f27c23cb6" />
 
 
 
