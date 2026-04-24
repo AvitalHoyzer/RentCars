@@ -219,4 +219,6 @@ WHERE year < 2003
 -- Query 3: Remove inactive locations
 -- GUI: Database cleanup for locations that don't have any associated rental branches.
 DELETE FROM LOCATION 
-WHERE location_id NOT IN (SELECT location_id FROM COMPANY_LOCATION);
+WHERE location_id NOT IN (SELECT location_id FROM COMPANY_LOCATION)
+  AND location_id NOT IN (SELECT pickup_location FROM BOOKING WHERE pickup_location IS NOT NULL)
+  AND location_id NOT IN (SELECT return_location FROM BOOKING WHERE return_location IS NOT NULL);
