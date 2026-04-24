@@ -396,5 +396,66 @@ Verification: Verified the change persisted after the transaction closed.
 
 
 ## Indexes & Performance Optimization
+To optimize the system's performance, we implemented B-Tree indexes on frequently searched and sorted columns. We used EXPLAIN ANALYZE to measure the execution time before and after the optimization.
+
+### Index 1: Sorting by Price (idx_car_price_sort)
+
+#### Purpose: 
+
+Optimizing the "Price: Low to High" filter in the car catalog
+
+#### Before Optimization: 
+
+<img width="1460" height="763" alt="צילום מסך 2026-04-24 151448" src="https://github.com/user-attachments/assets/7895163a-ceb9-4393-80e5-63df2cb73355" />
+
+
+#### After Optimization: 
+
+<img width="1463" height="790" alt="צילום מסך 2026-04-24 151512" src="https://github.com/user-attachments/assets/791af0b4-15f7-4278-8232-8ec0be8f64e9" />
+
+
+#### Analysis: 
+The index allows the database to retrieve rows in a pre-sorted order from the B-Tree structure, significantly reducing the overhead of sorting large datasets in memory.
+
+### Index 2: Searching by City (idx_location_city_search)
+
+#### Purpose: 
+
+Accelerating the location search on the homepage.
+
+#### Before Optimization: 
+
+The database performed a Sequential Scan, checking every row in the table.
+
+<img width="1487" height="803" alt="צילום מסך 2026-04-24 153027" src="https://github.com/user-attachments/assets/dbc18056-113e-4498-b89f-9efd6794abf7" />
+
+
+#### After Optimization: 
+
+The database used a Bitmap Index Scan, jumping directly to the relevant data.
+
+<img width="1493" height="787" alt="צילום מסך 2026-04-24 153044" src="https://github.com/user-attachments/assets/4a99f63b-87c2-4fb0-a5bc-f2b9cae0710c" />
+
+
+### Index 3: Date Range Filtering (idx_booking_pickup_idx)
+
+#### Purpose: 
+
+Speeding up administrative reports for specific booking periods
+
+#### Before Optimization:
+
+Used a Sequential Scan to filter 13,736 rows
+
+<img width="1472" height="778" alt="צילום מסך 2026-04-24 151915" src="https://github.com/user-attachments/assets/ba7a634b-9b95-4609-9ca9-93d7f12d14bf" />
+
+
+#### After Optimization: 
+
+Used a Bitmap Index Scan, which is much more efficient for range queries
+
+<img width="1472" height="773" alt="צילום מסך 2026-04-24 151956" src="https://github.com/user-attachments/assets/223d099c-fff8-4f25-8f7b-adeb7cb33d0e" />
+
+
 
 
