@@ -186,9 +186,9 @@ Efficiency Analysis: JOIN is better if the GUI needs to display the total_bookin
 ### Query 3: Recommended Cars (Rating 4+)
 Description: שליפת רכבים שזכו לדירוג ממוצע של 4 ומעלה עבור מסך "רכבים מומלצים".
 
-Approach A (Double JOIN & HAVING): Direct approach.
+Approach A (Subquery in FROM): Pre-calculates averages.
 
-Approach B (Subquery in FROM): Pre-calculates averages.
+Approach B (Double JOIN & HAVING): Direct approach.
 
 Efficiency Analysis: Approach B can be more efficient if the subquery significantly reduces the number of rows (by grouping reviews) before joining with the larger CAR table.
 
