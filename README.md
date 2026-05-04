@@ -205,7 +205,7 @@ Approach A (Subquery in FROM): Aggregates data before joining.
 
 Approach B (JOIN & GROUP BY): Simplest implementation.
 
-Efficiency Analysis: Approach B is faster when the BOOKING table is massive, as it reduces the join complexity by summarizing the IDs first.
+Efficiency Analysis: Approach A is faster when the BOOKING table is massive, as it reduces the join complexity by summarizing the IDs first.
 
 📜 [Query4](phase2/Queries.sql)
 
