@@ -190,7 +190,7 @@ Approach A (Subquery in FROM): Pre-calculates averages.
 
 Approach B (Double JOIN & HAVING): Direct approach.
 
-Efficiency Analysis: Approach B can be more efficient if the subquery significantly reduces the number of rows (by grouping reviews) before joining with the larger CAR table.
+Efficiency Analysis: Approach A can be more efficient if the subquery significantly reduces the number of rows (by grouping reviews) before joining with the larger CAR table.
 
 📜 [Query3](phase2/Queries.sql)
 
