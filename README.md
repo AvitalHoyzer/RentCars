@@ -178,7 +178,7 @@ Approach B (JOIN & HAVING): Required if we want to display the actual count.
 
 Efficiency Analysis: JOIN is better if the GUI needs to display the total_bookings count. IN can be optimized by the engine when only the identity of the tourist is needed.
 
-[Query2](phase2/Queries.sql)
+📜 [Query2](phase2/Queries.sql)
 
 <img width="1495" height="790" alt="צילום מסך 2026-04-24 162643" src="https://github.com/user-attachments/assets/9c43d7cb-32e5-4c9c-977b-7eccd42d3718" />
 <img width="1479" height="790" alt="צילום מסך 2026-04-24 162627" src="https://github.com/user-attachments/assets/91402e7d-3f19-4e80-98e7-2e8c24517fe8" />
