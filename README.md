@@ -170,11 +170,11 @@ Efficiency Analysis: EXISTS is more efficient for "existence" checks because it 
 
 
 ### Query 2: Loyal Customers (5+ Bookings in 2026)
-Description: זיהוי תיירים שביצעו יותר מ-5 הזמנות במהלך שנת 2026 עבור תוכנית נאמנות.
+Description: זיהוי תיירים שביצעו יותר מ-5 הזמנות במהלך שנת 2026 .
 
-Approach A (JOIN & HAVING): Required if we want to display the actual count.
+Approach A (IN with Subquery): Efficient for simple membership filtering.
 
-Approach B (IN with Subquery): Efficient for simple membership filtering.
+Approach B (JOIN & HAVING): Required if we want to display the actual count.
 
 Efficiency Analysis: JOIN is better if the GUI needs to display the total_bookings count. IN can be optimized by the engine when only the identity of the tourist is needed.
 
