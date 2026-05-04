@@ -201,9 +201,9 @@ Efficiency Analysis: Approach B can be more efficient if the subquery significan
 ### Query 4: Top 3 Most Booked Cars in 2026
 Description: הצגת שלושת הרכבים המבוקשים ביותר (הכי הרבה הזמנות) בשנת 2026.
 
-Approach A (JOIN & GROUP BY): Simplest implementation.
+Approach A (Subquery in FROM): Aggregates data before joining.
 
-Approach B (Subquery in FROM): Aggregates data before joining.
+Approach B (JOIN & GROUP BY): Simplest implementation.
 
 Efficiency Analysis: Approach B is faster when the BOOKING table is massive, as it reduces the join complexity by summarizing the IDs first.
 
