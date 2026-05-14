@@ -502,7 +502,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 ## Integrated ERD & Relational Schema
 
-### ERD && DSD of the Restaurant Component (New Wing)
+### ERD & DSD of the Restaurant Component (New Wing)
 
 <img width="3744" height="1707" alt="תמונה ERD מסעדות" src="https://github.com/user-attachments/assets/a288cf96-5350-4b84-bf40-7676ef344099" />
 
@@ -510,7 +510,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 <img width="1129" height="822" alt="DSD מסעדות" src="https://github.com/user-attachments/assets/2c1b870b-d25a-4a52-9ca3-68933dc2b84c" />
 
-### ERD && DSD of the Integrated System
+### ERD & DSD of the Integrated System
 
 <img width="3744" height="1707" alt="ERD מאוחד" src="https://github.com/user-attachments/assets/913edc81-7727-4046-a6e6-8ee1ea5bb187" />
 
