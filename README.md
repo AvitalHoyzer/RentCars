@@ -491,12 +491,12 @@ Despite their logical similarity, we maintained `Car_Booking` and `Rest_Booking`
 * **Rationale:** Each booking type possesses unique and critical attributes that do not overlap (e.g., return dates and pickup locations for cars vs. the number of people for restaurant tables).
 * **Benefit:** This separation prevents a high frequency of `NULL` values and ensures strict data validation for each business domain.
 
-#### 2. Unified Reviews & Detailed Rating 
-We unified the feedback mechanism into a single `Review` entity serving the entire system.
-* **The Rating Decision:** We represented the rating as a separate entity linked to the review to support multi-criteria feedback.
-* **Identifying Relationship:** We defined `Rating` as a Weak Entity with an identifying relationship to the `Review`. This ensures that a rating cannot exist without its parent review and is identified through the `review_id`.
-* **Granularity:** This structure allows a tourist to provide multiple specific ratings (e.g., Service, Cleanliness, Food) under a single review entry.
-
+#### 2. Unified Reviews & Detailed Rating Entity
+Following the "Broadest Model" integration principle, we maintained the granular feedback structure originally found in the Restaurant system.
+* **Structural Preservation:** We kept the `Rating` component as a separate entity linked to the unified `Review` table.
+* **Identifying Relationship:** In the integrated schema, `Rating` remains defined as a **Weak Entity** with an identifying relationship to the `Review`. This ensures that the detailed scores are always anchored to their parent review via the `review_id`.
+* **Integrated Capability:** By preserving this structure, the combined system now supports multiple specific ratings (such as Service, Cleanliness, or Food) for both car rentals and restaurant bookings within a single unified framework.
+  
 #### 3. Optional Constraints (Nullability)
 To allow a single `Review` entry to refer to either a restaurant or a car/company, we utilized **Optional Constraints**. The foreign keys (`rest_id`, `car_id`) are defined as nullable, providing the flexibility to link a review to the relevant target while keeping other reference fields empty.
 
