@@ -20,7 +20,10 @@ Moriya Kalfon
   - [Constraints (Data Integrity)](#constraints-data-integrity)
   - [Transactions (Commit & Rollback)](#transactions-commit--rollback)
   - [Indexes & Performance Optimization](#indexes--performance-optimization)
-    
+- [Phase 3: System Integration & Database Views](#phase-3-system-integration--database-views)
+  - [Integration & Design Decisions](#integration--design-decisions)
+  - [Integrated ERD & Relational Schema](#integrated-erd--relational-schema)
+  - [Database Views (Virtual Tables)](#database-views-virtual-tables)
 ---
 
 # Phase 1: Design and Build the Database  
@@ -463,5 +466,54 @@ Used a Bitmap Index Scan, which is much more efficient for range queries
 <img width="1472" height="773" alt="צילום מסך 2026-04-24 151956" src="https://github.com/user-attachments/assets/223d099c-fff8-4f25-8f7b-adeb7cb33d0e" />
 
 
+## Phase 3: System Integration & Database Views
+This phase represents the final integration of the Car Rental system with a Restaurant Reservation system, creating a unified tourism ecosystem.
+
+---
+## Integration & Design Decisions
+
+### Overview
+The goal of this phase was to merge two independent models into a single, holistic database for tourists.
+
+### Methodology & Tooling
+To ensure a safe and organized integration process, we utilized **ERDPlus**. We began by duplicating our original Car Rental ERD to create a working sandbox. On this duplicated version, we performed all necessary modifications, additions, and entity unifications required for the restaurant integration. This approach allowed us to maintain the integrity of our initial design while evolving the model into its final, integrated state.
+
+### Core Entities & Global Unification
+The foundation of the integration rests on unifying the core entities present in both models:
+* **Tourist Entity:** We merged all fields from both models. The final model includes identification (Passport Number), contact details (Email, Phone), and system access credentials (Username, Password, Birthday) to provide a single sign-on experience across all tourism services (And another feature - language).
+
+* **Location Hierarchy (Country & City):** We adopted the more detailed hierarchy (Country -> City). All rental companies and restaurants are now linked to a specific City entity, preventing data duplication and enabling precise geographical filtering.
+
+### Key Design Decisions
+
+#### 1. Separation of Bookings
+Despite their logical similarity, we maintained `Car_Booking` and `Rest_Booking` as separate entities.
+* **Rationale:** Each booking type possesses unique and critical attributes that do not overlap (e.g., return dates and pickup locations for cars vs. the number of people for restaurant tables).
+* **Benefit:** This separation prevents a high frequency of `NULL` values and ensures strict data validation for each business domain.
+
+#### 2. Unified Reviews & Detailed Rating 
+We unified the feedback mechanism into a single `Review` entity serving the entire system.
+* **The Rating Decision:** We represented the rating as a separate entity linked to the review to support multi-criteria feedback.
+* **Identifying Relationship:** We defined `Rating` as a Weak Entity with an identifying relationship to the `Review`. This ensures that a rating cannot exist without its parent review and is identified through the `review_id`.
+* **Granularity:** This structure allows a tourist to provide multiple specific ratings (e.g., Service, Cleanliness, Food) under a single review entry.
+
+#### 3. Optional Constraints (Nullability)
+To allow a single `Review` entry to refer to either a restaurant or a car/company, we utilized **Optional Constraints**. The foreign keys (`rest_id`, `car_id`) are defined as nullable, providing the flexibility to link a review to the relevant target while keeping other reference fields empty.
+
+## Integrated ERD & Relational Schema
+
+### ERD && DSD of the Restaurant Component (New Wing)
+
+<img width="3744" height="1707" alt="תמונה ERD מסעדות" src="https://github.com/user-attachments/assets/a288cf96-5350-4b84-bf40-7676ef344099" />
+
+<img width="3744" height="1707" alt="DSD של ERDPLUS למסעדות" src="https://github.com/user-attachments/assets/07102a92-eb25-49e3-a509-e098cb6b6fc3" />
+
+<img width="1129" height="822" alt="DSD מסעדות" src="https://github.com/user-attachments/assets/2c1b870b-d25a-4a52-9ca3-68933dc2b84c" />
+
+### ERD && DSD of the Integrated System
+
+<img width="3744" height="1707" alt="ERD מאוחד" src="https://github.com/user-attachments/assets/913edc81-7727-4046-a6e6-8ee1ea5bb187" />
+
+<img width="3744" height="1707" alt="DSD מאוחד" src="https://github.com/user-attachments/assets/35984fed-0dfd-4455-9d39-1c1cb1b91f0a" />
 
 
