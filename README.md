@@ -545,3 +545,6 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 #### Step 4: Geographic Normalization
 * **Commands:** `UPDATE ... SET city_id = c.city_id FROM ...`, `ALTER TABLE ... DROP COLUMN`.
 * **Explanation:** We introduced `city_id` references into `rental_company` and `car_booking` (for pickup and return cities). Using `LOWER(TRIM())` matching, string text values from the old schema were translated into relational IDs from the new `city` table. Flat text columns and the outdated `location` table were then purged.
+
+
+📜 [Integrate.sql](phase3/Integrate.sql)
