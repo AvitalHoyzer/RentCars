@@ -24,6 +24,8 @@ Moriya Kalfon
   - [Integration & Design Decisions](#integration--design-decisions)
   - [Integrated ERD & Relational Schema](#integrated-erd--relational-schema)
   - [Database Views (Virtual Tables)](#database-views-virtual-tables)
+  - [Architectural Decisions During Integration](architectural-decisions-during-integration)
+  - [Step-by-Step Technical Process & Command Breakdown](step--by--step-technical-process--command-breakdown)
 ---
 
 # Phase 1: Design and Build the Database  
@@ -517,3 +519,29 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 <img width="3744" height="1707" alt="DSD מאוחד" src="https://github.com/user-attachments/assets/35984fed-0dfd-4455-9d39-1c1cb1b91f0a" />
 
 
+### Architectural Decisions During Integration
+
+* **Single Source of Truth for Users (`tourist`):** Instead of keeping two separate user tables, all user/tourist records were consolidated into a single central `tourist` table. Attributes unique to the car rental domain (`passportnumber`) and the restaurant domain (`language`, `birthday`, `user_name`, `password`) were merged into this single entity.
+* **Conflict Resolution via Identity Shifting:** To prevent Primary Key conflicts during insertion, all incoming tourist IDs from the car rental schema were systematically shifted by `+10000`. 
+* **Data Preservation for Unique Constraints:** To bypass `UNIQUE` constraint violations on `phone` and `email` without dropping duplicate users (which would cause foreign key orphan issues), car rental users with conflicting phone/emails had a `_car` suffix appended to their unique fields.
+* **Semantic Entity Disambiguation:** The booking tables were split and renamed to `car_booking` and `rest_booking` to clearly separate the business logic of each domain while keeping them linked to the unified `tourist` table.
+* **Normalization Overhaul (Geographic Locations):** The unstructured text-based `location` table from the car rental system was deprecated. Instead, we aligned the entire ecosystem with the restaurant domain's strictly normalized `city` and `country` tables to ensure higher data integrity and reduce redundancy.
+* **Polymorphic Review Architecture:** The `feedback` table was transformed into a unified `review` table. Instead of linking reviews only to bookings, we realigned the schema so a review points directly to the core physical entities (`car_id` or `restaurant_id`), matching the decoupled ERD design requirements.
+
+### Step-by-Step Technical Process & Command Breakdown
+
+#### Step 1: Schema Expansion & User Consolidation
+* **Commands:** `ALTER TABLE ... ADD COLUMN`, `UPDATE ... SET phone = phone || '_car'`, `INSERT INTO public.tourist`.
+* **Explanation:** We expanded the main `tourist` table to host all merged attributes. Before migrating data, an existential check (`WHERE EXISTS`) scanned for duplicate phone numbers/emails and appended a `_car` tag to conflicting rental users. Then, rental IDs were offset by `10000` to prevent collision with restaurant IDs before being appended to the unified table.
+
+#### Step 2: Booking Realignment
+* **Commands:** `ALTER TABLE ... RENAME TO`, `ALTER TABLE ... ADD CONSTRAINT ... FOREIGN KEY`.
+* **Explanation:** Legacy booking tables were renamed to `car_booking` and `rest_booking`. Orphaned entries pointing to invalid IDs were routed to a safe fallback (`tourist_id = 1`) before establishing official cascaded foreign keys back to the new unified `tourist` table.
+
+#### Step 3: Review & Rating Unification
+* **Commands:** `ALTER TABLE ... DROP NOT NULL`, `INSERT INTO ... SELECT ... ROW_NUMBER()`, `DROP TABLE`.
+* **Explanation:** The restaurant `feedback` table was altered to allow `NULL` values for `rest_id`, since car reviews do not possess restaurant context. Data from the car `review` table was poured into `feedback` using `ROW_NUMBER()` to dynamically calculate unique IDs. Numeric scores were extracted and normalized into the `rating` table. Finally, the legacy `review` table was dropped, and `feedback` was renamed to `review`.
+
+#### Step 4: Geographic Normalization
+* **Commands:** `UPDATE ... SET city_id = c.city_id FROM ...`, `ALTER TABLE ... DROP COLUMN`.
+* **Explanation:** We introduced `city_id` references into `rental_company` and `car_booking` (for pickup and return cities). Using `LOWER(TRIM())` matching, string text values from the old schema were translated into relational IDs from the new `city` table. Flat text columns and the outdated `location` table were then purged.
