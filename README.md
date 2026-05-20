@@ -25,7 +25,7 @@ Moriya Kalfon
   - [Integrated ERD & Relational Schema](#integrated-erd--relational-schema)
   - [Database Views (Virtual Tables)](#database-views-virtual-tables)
   - [Architectural Decisions During Integration](#architectural-decisions-during-integration)
-  - [Step-by-Step Technical Process & Command Breakdown](#step-by-step-technical-process-command-breakdown)
+  - [Step-by-Step Technical Process & Command Breakdown](#step-by-step-technical-process--command-breakdown)
 ---
 
 # Phase 1: Design and Build the Database  
