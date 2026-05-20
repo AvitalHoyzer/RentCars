@@ -23,9 +23,9 @@ Moriya Kalfon
 - [Phase 3: System Integration & Database Views](#phase-3-system-integration--database-views)
   - [Integration & Design Decisions](#integration--design-decisions)
   - [Integrated ERD & Relational Schema](#integrated-erd--relational-schema)
-  - [Database Views (Virtual Tables)](#database-views-virtual-tables)
   - [Architectural Decisions During Integration](#architectural-decisions-during-integration)
   - [Step-by-Step Technical Process & Command Breakdown](#step-by-step-technical-process--command-breakdown)
+  - [Database Views](#database-views)
 ---
 
 # Phase 1: Design and Build the Database  
@@ -548,3 +548,54 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 
 📜 [Integrate.sql](phase3/Integrate.sql)
+
+
+## Database Views
+### 📊 View 1: v_car_rental_summary
+* **View Description:** This operational view serves the car rental branch. It consolidates car bookings, physical car specifications (brand and model), full customer names, and geographic pickup cities into a single dashboard. It provides the operations department with an overview of active workflows, dates, and financial inputs.
+
+<img width="1413" height="800" alt="view1" src="https://github.com/user-attachments/assets/1738f6e6-a60c-4737-b598-e878fb712189" />
+
+
+* **Query 1 Description:** This query aggregates the view data by pickup city, calculating the total number of rentals and cumulative revenue per city. It helps track regional performance and identify high-value markets.
+
+<img width="1360" height="809" alt="view1query1" src="https://github.com/user-attachments/assets/884c4987-3ed5-4abd-baeb-58f1b6dab856" />
+
+
+* **Query 2 Description:** This query filters and groups data by customer name to identify VIP clients who have spent more than 1,500 total currency units on car rentals, allowing the business to run loyalty and retention campaigns.
+
+<img width="1273" height="800" alt="view1query2" src="https://github.com/user-attachments/assets/b7e9d4cf-c6a0-499a-bbe8-d6f38e3b75f7" />
+
+
+### 📊 View 2: v_restaurant_booking_summary
+* **View Description:** This view represents the analytical core of the restaurant branch. It joins restaurant reservation metrics with the underlying restaurant configurations (cuisine type), customer names, and restaurant cities. It is designed to evaluate dining traffic and spot trends in reservation choices.
+
+<img width="1399" height="802" alt="view2" src="https://github.com/user-attachments/assets/c79608f7-6640-476d-8b77-89fecbd76ee2" />
+
+
+* **Query 1 Description:** This query breaks down booking counts and calculates the average party size (group size) for each cuisine type, illustrating which types of food attract large group events vs. smaller parties.
+
+<img width="1413" height="670" alt="view2query1" src="https://github.com/user-attachments/assets/035184bb-d502-4a96-8571-513f5c567c07" />
+
+
+* **Query 2 Description:** This analytical query extracts the ISO day of the week from the booking dates to calculate the total number of bookings and individual diners hosted per weekday. This allows administrators to optimize operational hours, marketing efforts, and staff allocation for peak days.
+
+<img width="1404" height="808" alt="view2query2" src="https://github.com/user-attachments/assets/09e0db42-5732-4794-8f5a-85cbcad6f311" />
+
+
+### 📊 View 3: v_unified_customer_feedback
+* **View Description:** A fully integrated cross-domain analytical view mapping the newly unified review and rating architecture. It merges reviewer profiles, custom review text titles, and numeric scores while using dynamic conditional logic (`COALESCE`) to explicitly display the reviewed item—flagging whether it was a specific car fleet brand or a restaurant location.
+
+<img width="1328" height="808" alt="view3" src="https://github.com/user-attachments/assets/96b6d273-925a-41ea-b7ec-4c34ba9cc525" />
+
+
+* **Query 1 Description:** This macro-level query divides review counts and averages total numeric scores between the car rental and restaurant sectors, giving senior executives an instant quality comparison between both business units.
+
+<img width="1414" height="539" alt="view3query1" src="https://github.com/user-attachments/assets/54418899-2046-4c82-adde-d9ef77419b03" />
+
+
+* **Query 2 Description:** This operational query isolates critical negative feedback by screening for rating scores of 2 or below. It generates an active risk queue displaying customer names, problem details, and specific low ratings for urgent support intervention.
+
+<img width="1317" height="809" alt="view3query2" src="https://github.com/user-attachments/assets/93553dcf-3c70-4c18-9cd2-58092b4b403a" />
+
+📜 [Views.sql](phase3/Views.sql)
