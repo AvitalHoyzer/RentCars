@@ -518,6 +518,9 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 <img width="3744" height="1707" alt="DSD מאוחד" src="https://github.com/user-attachments/assets/35984fed-0dfd-4455-9d39-1c1cb1b91f0a" />
 
+<img width="1362" height="986" alt="צילום מסך 2026-05-21 095856" src="https://github.com/user-attachments/assets/8962fe34-5e42-4ee9-9d82-e57e78b0cace" />
+
+
 
 ### Architectural Decisions During Integration
 
