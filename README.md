@@ -677,7 +677,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 <img width="1126" height="648" alt="צילום מסך 2026-05-28 224145" src="https://github.com/user-attachments/assets/8b5ad514-6953-4b20-9ffc-bb2f5538c076" />
 
-📜 [RunProcedure2](phase4/RunProcedures/test_pr_apply_strategic_discounts.sql)
+📜 [RunProcedure2](phase4/RunProcedures/test_pr_book_integrated_package.sql)
 
 <img width="1223" height="674" alt="צילום מסך 2026-05-28 224711" src="https://github.com/user-attachments/assets/a98624c3-7c0a-409e-ae11-c98c05a7504c" />
 
