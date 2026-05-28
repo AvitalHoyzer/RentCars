@@ -26,6 +26,12 @@ Moriya Kalfon
   - [Architectural Decisions During Integration](#architectural-decisions-during-integration)
   - [Step-by-Step Technical Process & Command Breakdown](#step-by-step-technical-process--command-breakdown)
   - [Database Views](#database-views)
+- [Phase 4: Database Programming (PL/pgSQL)](#phase-4-database-programming-plpgsql)
+  - [Functions](#stored-functions)
+  - [Procedures](#stored-procedures)
+  - [Database Triggers](#database-triggers)
+  - [Main Control Programs (Anonymous Blocks)](#main-control-programs-anonymous-blocks)
+
 ---
 
 # Phase 1: Design and Build the Database  
@@ -602,3 +608,41 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 <img width="1317" height="809" alt="view3query2" src="https://github.com/user-attachments/assets/93553dcf-3c70-4c18-9cd2-58092b4b403a" />
 
 📜 [Views.sql](phase3/Views.sql)
+
+# Phase 4: Database Programming (PL/pgSQL)
+---
+
+## Functions 
+
+### Function 1: fn_get_tourist_activity
+* **Function Description:** This integrative function extracts a comprehensive activity statement for a specific tourist across the merged database ecosystem. It accepts a tourist ID (`p_tourist_id`) as an input parameter and returns a dynamically bound **`REFCURSOR`** containing all linked review entries and rating scores, while automatically resolving the business sector type (Car vs. Restaurant). Additionally, it leverages an **Explicit Cursor** wrapped in a programmatic loop to calculate the tourist's cumulative financial expenditure within the system. Robust error-handling is enforced via an **`EXCEPTION`** block to catch non-existent IDs and gracefully prevent runtime crashes.
+
+📜 [Function1](phase4/Functions/fn_get_tourist_activity.sql)
+
+<img width="1388" height="777" alt="צילום מסך 2026-05-28 205440" src="https://github.com/user-attachments/assets/3f5c7a4f-dae0-4d5f-bcdb-8aaafa95831c" />
+
+📜 [RunFunction1](phase4/RunFunctions/test_fn_get_tourist_activity.sql)
+<img width="1401" height="803" alt="צילום מסך 2026-05-28 210238" src="https://github.com/user-attachments/assets/2d466d78-f41c-45ef-9aa1-cde999ba8f3a" />
+<img width="754" height="451" alt="צילום מסך 2026-05-28 210841" src="https://github.com/user-attachments/assets/a76e163d-3114-4f77-bd3a-847cb1751842" />
+<img width="1231" height="460" alt="צילום מסך 2026-05-28 210911" src="https://github.com/user-attachments/assets/5774f752-9fbd-4391-ad80-cd62f52fafb0" />
+
+
+### Function 2: fn_calculate_city_health_index
+* **Function Description:** This complex analytical function calculates a consolidated "Business Health Index" score for a given city provided as a text parameter (`p_city_name`). It uses **Implicit Cursors** via embedded `SELECT INTO` operations to measure and compare average restaurant ratings against car rental fleet pickup scores within that specific municipality. The function implements multi-conditional branching (`IF-THEN-ELSE`) to normalize these raw figures into a standardized 1-to-100 index rating. To secure high data stability, an **`EXCEPTION`** interceptor blocks data anomalies (such as a division-by-zero if a city has zero reviews) and returns a safe fallback score of `0` accompanied by a system warning log.
+
+📜 [Function2](phase4/Functions/fn_calculate_city_health_index.sql)
+
+<img width="1253" height="556" alt="צילום מסך 2026-05-28 212742" src="https://github.com/user-attachments/assets/f4a78d70-7dfb-45a2-88db-b65ad0c2d081" />
+
+📜 [RunFunction2](phase4/RunFunctions/test_fn_calculate_city_health_index.sql)
+
+<img width="1169" height="436" alt="צילום מסך 2026-05-28 211746" src="https://github.com/user-attachments/assets/faab2099-eaa7-4b13-b224-88391ab46b4b" />
+<img width="1096" height="421" alt="צילום מסך 2026-05-28 211816" src="https://github.com/user-attachments/assets/b8a07434-70c0-4a17-9af6-73d581fa5e35" />
+<img width="1136" height="420" alt="צילום מסך 2026-05-28 212832" src="https://github.com/user-attachments/assets/d94907c2-da1c-423e-a9c3-f37efd06137e" />
+<img width="1084" height="417" alt="צילום מסך 2026-05-28 212840" src="https://github.com/user-attachments/assets/8d61ca3a-7089-407b-9366-761ec6cbb453" />
+<img width="1398" height="416" alt="צילום מסך 2026-05-28 212008" src="https://github.com/user-attachments/assets/0d976204-c890-46f7-81cf-dfdc1f7feeba" />
+<img width="1308" height="452" alt="צילום מסך 2026-05-28 211957" src="https://github.com/user-attachments/assets/dcc9d74c-406b-4271-9fba-bbd45b960ebc" />
+
+
+
+
