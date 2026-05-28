@@ -621,7 +621,10 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 <img width="1388" height="777" alt="צילום מסך 2026-05-28 205440" src="https://github.com/user-attachments/assets/3f5c7a4f-dae0-4d5f-bcdb-8aaafa95831c" />
 
+
 📜 [RunFunction1](phase4/RunFunctions/test_fn_get_tourist_activity.sql)
+
+
 <img width="1401" height="803" alt="צילום מסך 2026-05-28 210238" src="https://github.com/user-attachments/assets/2d466d78-f41c-45ef-9aa1-cde999ba8f3a" />
 <img width="754" height="451" alt="צילום מסך 2026-05-28 210841" src="https://github.com/user-attachments/assets/a76e163d-3114-4f77-bd3a-847cb1751842" />
 <img width="1231" height="460" alt="צילום מסך 2026-05-28 210911" src="https://github.com/user-attachments/assets/5774f752-9fbd-4391-ad80-cd62f52fafb0" />
@@ -634,7 +637,9 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 <img width="1253" height="556" alt="צילום מסך 2026-05-28 212742" src="https://github.com/user-attachments/assets/f4a78d70-7dfb-45a2-88db-b65ad0c2d081" />
 
+
 📜 [RunFunction2](phase4/RunFunctions/test_fn_calculate_city_health_index.sql)
+
 
 <img width="1169" height="436" alt="צילום מסך 2026-05-28 211746" src="https://github.com/user-attachments/assets/faab2099-eaa7-4b13-b224-88391ab46b4b" />
 <img width="1096" height="421" alt="צילום מסך 2026-05-28 211816" src="https://github.com/user-attachments/assets/b8a07434-70c0-4a17-9af6-73d581fa5e35" />
