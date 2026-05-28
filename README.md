@@ -647,6 +647,39 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 <img width="1398" height="416" alt="צילום מסך 2026-05-28 212008" src="https://github.com/user-attachments/assets/0d976204-c890-46f7-81cf-dfdc1f7feeba" />
 <img width="1308" height="452" alt="צילום מסך 2026-05-28 211957" src="https://github.com/user-attachments/assets/dcc9d74c-406b-4271-9fba-bbd45b960ebc" />
 
-# Procedures
+## Procedures
 
+### Procedure 1: pr_apply_strategic_discounts
+* **Procedure Description:** This administrative control procedure automates a dynamic marketing markdown system based on real-time analytical metrics. It utilizes an **Explicit Cursor** to loop through all active car rental agencies row-by-row into a structurally defined **Record Variable**. For every company, it checks the analytical performance index of its base municipality by calling our custom function (`fn_calculate_city_health_index`). If a company is determined to be operating inside a low-performing area (score lower than 60), the block triggers an active **DML UPDATE** command reducing the daily hiring price of all cars managed by that entity by **10%**. Progress is monitored via inline row count tracking (`ROW_COUNT`) and server telemetry outputs.
+
+📜 [Procedure1](phase4/Procedures/pr_apply_strategic_discounts.sql)
+
+<img width="1112" height="635" alt="צילום מסך 2026-05-28 222630" src="https://github.com/user-attachments/assets/a765328a-7ffe-4623-976a-737a8646f042" />
+
+
+📜 [RunProcedure1](phase4/RunProcedures/test_pr_apply_strategic_discounts.sql)
+
+<img width="1340" height="810" alt="צילום מסך 2026-05-28 223528" src="https://github.com/user-attachments/assets/c7c97142-e133-446e-b0ef-04ff0488e45d" />
+
+<img width="1405" height="513" alt="צילום מסך 2026-05-28 223540" src="https://github.com/user-attachments/assets/7ca14db5-f185-4670-9a44-ecbe637a8800" />
+
+> **Execution Analysis & Database Integrity Proof:**
+> As demonstrated in the console output telemetry above, the procedure `pr_apply_strategic_discounts` executed its analytical loop successfully across all target rows. 
+>
+> 1. **Data Integration in Action:** The block evaluated each rental company's location using our analytical function `fn_calculate_city_health_index`. When it scanned *Company 19* in *"Jagüey Grande"*, it recorded a low business score of `50/100` and successfully dispatched a batch **DML UPDATE**, modifying 23 car asset records simultaneously.
+> 2. **Constraint Enforcement:** Upon reaching *Company 21* in *"Tulyushka"* (also scoring `50/100`), the 10% markdown attempted to drop a car's rate below the allowed minimum financial threshold. Immediately, the core database schema blocked the operation by raising a **Check Constraint Violation** (`chk_min_price_threshold`) created in Phase 2.
+> 3. **Robust Exception Handling:** Instead of suffering a critical system crash or leaving the database in a partially updated state, our PL/pgSQL **`EXCEPTION` block** instantly intercepted the runtime error, safely aborted the transaction sub-block, and printed a clean diagnostic summary to the console. This guarantees absolute data consistency and system resilience.
+
+####  Procedure 2: pr_book_integrated_package
+* **Procedure Description:** This transactional procedure operates as an all-or-nothing omni-channel booking gateway for cross-domain travel packages. It takes parameters for a simultaneous vehicle rental and fine-dining reservation under a single workflow. It enforces strict business constraints, ensuring customer verification and proper chronological sequence rules (verifying return dates do not precede collection points). If valid, it increments primary key states and triggers multiple sequential **DML INSERT** statements onto both the car and restaurant schema cores. If any portion fails, the custom constraint engine aborts execution, intercepts the runtime error using an **`EXCEPTION`** handle, issues an immediate console diagnostic log, and triggers a system safety protection protocol to prevent partial data updates.
+
+📜 [Procedure2](phase4/Procedures/pr_book_integrated_package.sql)
+
+<img width="1126" height="648" alt="צילום מסך 2026-05-28 224145" src="https://github.com/user-attachments/assets/8b5ad514-6953-4b20-9ffc-bb2f5538c076" />
+
+📜 [RunProcedure2](phase4/RunProcedures/test_pr_apply_strategic_discounts.sql)
+
+<img width="1223" height="674" alt="צילום מסך 2026-05-28 224711" src="https://github.com/user-attachments/assets/a98624c3-7c0a-409e-ae11-c98c05a7504c" />
+
+<img width="1414" height="700" alt="צילום מסך 2026-05-28 224807" src="https://github.com/user-attachments/assets/7a3baf90-48fe-4914-809c-86cf63b1da19" />
 
