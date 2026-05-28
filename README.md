@@ -624,8 +624,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 📜 [RunFunction1](phase4/RunFunctions/test_fn_get_tourist_activity.sql)
 
-
-<img width="1401" height="803" alt="צילום מסך 2026-05-28 210238" src="https://github.com/user-attachments/assets/2d466d78-f41c-45ef-9aa1-cde999ba8f3a" />
+<img width="1389" height="777" alt="צילום מסך 2026-05-28 221720" src="https://github.com/user-attachments/assets/0d5fea05-4383-40c6-a9e0-7a2f500ebb3d" />
 <img width="754" height="451" alt="צילום מסך 2026-05-28 210841" src="https://github.com/user-attachments/assets/a76e163d-3114-4f77-bd3a-847cb1751842" />
 <img width="1231" height="460" alt="צילום מסך 2026-05-28 210911" src="https://github.com/user-attachments/assets/5774f752-9fbd-4391-ad80-cd62f52fafb0" />
 
