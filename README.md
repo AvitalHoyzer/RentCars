@@ -27,8 +27,8 @@ Moriya Kalfon
   - [Step-by-Step Technical Process & Command Breakdown](#step-by-step-technical-process--command-breakdown)
   - [Database Views](#database-views)
 - [Phase 4: Database Programming (PL/pgSQL)](#phase-4-database-programming-plpgsql)
-  - [Functions](#stored-functions)
-  - [Procedures](#stored-procedures)
+  - [Functions](#functions)
+  - [Procedures](#procedures)
   - [Database Triggers](#database-triggers)
   - [Main Control Programs (Anonymous Blocks)](#main-control-programs-anonymous-blocks)
 
@@ -647,6 +647,6 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 <img width="1398" height="416" alt="צילום מסך 2026-05-28 212008" src="https://github.com/user-attachments/assets/0d976204-c890-46f7-81cf-dfdc1f7feeba" />
 <img width="1308" height="452" alt="צילום מסך 2026-05-28 211957" src="https://github.com/user-attachments/assets/dcc9d74c-406b-4271-9fba-bbd45b960ebc" />
 
-
+# Procedures
 
 
