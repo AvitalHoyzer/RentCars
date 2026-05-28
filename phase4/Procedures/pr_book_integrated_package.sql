@@ -1,19 +1,15 @@
--- PROCEDURE: public.pr_book_integrated_package(integer, integer, integer, integer, date, date, integer, date, integer)
-
--- DROP PROCEDURE IF EXISTS public.pr_book_integrated_package(integer, integer, integer, integer, date, date, integer, date, integer);
-
 CREATE OR REPLACE PROCEDURE public.pr_book_integrated_package(
-	IN p_tourist_id integer,
-	IN p_car_id integer,
-	IN p_pickup_city_id integer,
-	IN p_return_city_id integer,
-	IN p_pickup_date date,
-	IN p_return_date date,
-	IN p_rest_id integer,
-	IN p_rest_booking_date date,
-	IN p_num_of_people integer)
-LANGUAGE 'plpgsql'
-AS $BODY$
+    p_tourist_id INT,
+    p_car_id INT,
+    p_pickup_city_id INT,
+    p_return_city_id INT,
+    p_pickup_date DATE,
+    p_return_date DATE,
+    p_rest_id INT,
+    p_rest_booking_date DATE,
+    p_num_of_people INT
+)
+AS $$
 DECLARE
     -- A. Local variables to hold operational states and primary key sequences
     v_max_booking_id INT;
@@ -44,6 +40,7 @@ BEGIN
     SELECT status INTO v_rest_status FROM public.rest_booking WHERE status IS NOT NULL LIMIT 1;
     IF v_rest_status IS NULL THEN v_rest_status := 'Active'; END IF;
 
+
     ----------------------------------------------------------------------------
     -- PHASE 1: PROCESS CAR BOOKING COMPONENT (DML 1)
     ----------------------------------------------------------------------------
@@ -58,6 +55,7 @@ BEGIN
     
     INSERT INTO public.car_booking (booking_id, booking_date, pickup_date, return_date, total_price, status, tourist_id, car_id, pickup_city_id, return_city_id)
     VALUES (v_max_booking_id, CURRENT_DATE, p_pickup_date, p_return_date, v_total_car_cost, v_car_status, p_tourist_id, p_car_id, p_pickup_city_id, p_return_city_id);
+
 
     ----------------------------------------------------------------------------
     -- PHASE 2: PROCESS RESTAURANT BOOKING COMPONENT (DML 2)
@@ -80,7 +78,4 @@ EXCEPTION
         RAISE NOTICE 'CRITICAL ERROR: Package processing aborted. Reason: %', SQLERRM;
         RAISE NOTICE 'Action: Performing transactional safety rollback...';
 END;
-$BODY$;
-ALTER PROCEDURE public.pr_book_integrated_package(integer, integer, integer, integer, date, date, integer, date, integer)
-    OWNER TO avital;
-
+$$ LANGUAGE plpgsql;

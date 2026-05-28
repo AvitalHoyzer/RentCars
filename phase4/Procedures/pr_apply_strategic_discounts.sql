@@ -1,11 +1,5 @@
--- PROCEDURE: public.pr_apply_strategic_discounts()
-
--- DROP PROCEDURE IF EXISTS public.pr_apply_strategic_discounts();
-
-CREATE OR REPLACE PROCEDURE public.pr_apply_strategic_discounts(
-	)
-LANGUAGE 'plpgsql'
-AS $BODY$
+CREATE OR REPLACE PROCEDURE public.pr_apply_strategic_discounts()
+AS $$
 DECLARE
     -- A. Define an Explicit Cursor to fetch rental companies row by row
     cur_companies CURSOR FOR 
@@ -58,7 +52,4 @@ EXCEPTION
     WHEN OTHERS THEN
         RAISE NOTICE 'Critical Error encountered during batch DML update: %', SQLERRM;
 END;
-$BODY$;
-ALTER PROCEDURE public.pr_apply_strategic_discounts()
-    OWNER TO avital;
-
+$$ LANGUAGE plpgsql;
