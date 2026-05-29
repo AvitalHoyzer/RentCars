@@ -683,3 +683,46 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 <img width="1414" height="700" alt="צילום מסך 2026-05-28 224807" src="https://github.com/user-attachments/assets/7a3baf90-48fe-4914-809c-86cf63b1da19" />
 
+## Database Triggers
+
+### Trigger 1: `trg_sync_vip_tourist_status`
+* **Target Relation (Table):** `public.car_booking`
+* **Execution Phase:** `AFTER INSERT OR UPDATE` (Row-Level)
+* **Design Objective:** Cross-domain customer tier synchronization.
+* **Technical Overview:** This trigger operates as an event listener for marketing automation. Whenever a new car booking is registered or updated, the underlying trigger function evaluates the transactional volume using the structural **`NEW`** row state. If a rental price exceeds a premium threshold of **$500.00**, the system intercepts the event and automatically executes an ecosystem synchronization protocol, emitting real-time telemetry alerts to unlock corresponding premium benefits and priority restaurant booking status for that unified tourist.
+
+[Trigger1](phase4/Triggers/trg_sync_vip_tourist_status.sql)
+
+<img width="1246" height="640" alt="צילום מסך 2026-05-29 172751" src="https://github.com/user-attachments/assets/36e8b0ff-c19c-49ad-b5f2-6f19576e07a4" />
+
+
+📜 [RunTrigger2](phase4/RunTriggers/test_trg_sync_vip_tourist_status.sql)
+
+<img width="1348" height="548" alt="צילום מסך 2026-05-29 173420" src="https://github.com/user-attachments/assets/d3f65c14-8833-4718-a01d-600f285a3cd7" />
+
+> **Automated Cross-Domain Event Telemetry:**
+> This console execution log confirms the operational deployment of the `trg_sync_vip_tourist_status` architecture. 
+> 
+> 1. **Data Driven Action:** Upon executing a standard `INSERT` statement on the vehicle leasing registry, the backend engine immediately triggered our PL/pgSQL function.
+> 2. **State Evaluation:** The row listener successfully scrutinized the context data via the `NEW` state modifier. Since the parameter value ($1,200.00) bypassed our designated financial baseline restriction (> $500), it verified the transaction and dynamically logged the automated VIP cross-domain integration notification to synchronize customer perks seamlessly.
+
+### Trigger 2: `trg_prevent_excessive_diners`
+* **Target Relation (Table):** `public.rest_booking`
+* **Execution Phase:** `BEFORE INSERT OR UPDATE` (Row-Level)
+* **Design Objective:** Enforcing defensive business rules and physical capacity constraints.
+* **Technical Overview:** This trigger functions as a server-side gatekeeper to prevent capacity infrastructure overload within the restaurant domain. Before any insert or update statement modifies the database state, the trigger function monitors the incoming record's guest count column (`num_of_people`) via the **`NEW`** row modifier. If a single booking attempts to allocate a table for **more than 20 diners**, the execution is immediately blocked. The trigger throws a severe database exception, halting the transaction execution flow entirely and rolling back the operational statement to protect the target system parameters.
+
+[Trigger2](phase4/Triggers/trg_prevent_excessive_diners.sql)
+
+<img width="1396" height="567" alt="צילום מסך 2026-05-29 173554" src="https://github.com/user-attachments/assets/446d994e-037d-4408-a779-e54a673eecbc" />
+
+📜 [RunTrigger2](phase4/RunTriggers/test_trg_prevent_excessive_diners.sql)
+
+<img width="1399" height="550" alt="צילום מסך 2026-05-29 173934" src="https://github.com/user-attachments/assets/c885b99a-10e2-4930-a540-596fe42f4560" />
+
+> **Capacity Rule Enforcement & Error Interception:**
+> This log output demonstrates the core defensive gatekeeping capabilities of `trg_prevent_excessive_diners`. 
+> 
+> 1. **Immediate Interception:** When an application context fires a rogue DML request—attempting to register a mass reservation of 30 guests (violating our maximum business safety limit of 20)—the **`BEFORE INSERT`** trigger intercepts the operational stream immediately.
+> 2. **Transaction Abortion:** The system checks the `NEW.num_of_people` property, stops execution from modifying the active table space, and forces a custom server-side error declaration (`SQL state: P0001`). This completely invalidates the injection attempt, keeping restaurant infrastructure capacity perfectly safe.
+
