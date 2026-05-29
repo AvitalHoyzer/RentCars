@@ -734,7 +734,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
   1. **Function Execution:** Invokes the analytical function `fn_calculate_city_health_index` to assess the economic stability and performance threshold of a specific targeted market (e.g., city of *"Puyang"*).
   2. **Procedure Call:** Immediately sequences into the batch administrative procedure `pr_apply_strategic_discounts`. This processes the analytical scores across all registered rental companies, executing bulk price markdown DML operations where weak infrastructure scores are detected.
 
-📜 [MainProgram1](phase4/MainPrograms/trg_sync_vip_tourist_status.sql)
+📜 [MainProgram1](phase4/MainPrograms/main_program_analytics.sql)
 
 <img width="1353" height="768" alt="צילום מסך 2026-05-29 181348" src="https://github.com/user-attachments/assets/1e40dd48-10ff-4e11-ab2b-0060fd2ba5e4" />
 
@@ -753,7 +753,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
   1. **Procedure Call:** Coordinates cross-domain client scheduling by executing `pr_book_integrated_package`. This safely inserts synchronized reservation lines across both the vehicle rental registries and the restaurant dining registries under an isolated transaction.
   2. **Function Execution:** Accesses the customer ledger by calling the Ref Cursor function `fn_get_tourist_activity`. The main program loops through the active memory address, fetches the combined historical interactions row-by-row, and outputs real-time auditing metrics to evaluate financial activity.
 
-📜 [MainProgram2](phase4/MainPrograms/test_trg_prevent_excessive_diners.sql)
+📜 [MainProgram2](phase4/MainPrograms/main_program_operations.sql)
 
 
 <img width="1401" height="790" alt="צילום מסך 2026-05-29 181752" src="https://github.com/user-attachments/assets/11274635-d5d6-42a6-b5e3-18f3e0a71ae5" />
