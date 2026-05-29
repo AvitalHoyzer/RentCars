@@ -29,7 +29,7 @@ Moriya Kalfon
 - [Phase 4: Database Programming (PL/pgSQL)](#phase-4-database-programming-plpgsql)
   - [Functions](#functions)
   - [Procedures](#procedures)
-  - [Triggers](#database-triggers)
+  - [Triggers](#triggers)
   - [Main Control Programs (Anonymous Blocks)](#main-control-programs-anonymous-blocks)
 
 ---
