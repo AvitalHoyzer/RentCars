@@ -29,7 +29,7 @@ Moriya Kalfon
 - [Phase 4: Database Programming (PL/pgSQL)](#phase-4-database-programming-plpgsql)
   - [Functions](#functions)
   - [Procedures](#procedures)
-  - [Database Triggers](#database-triggers)
+  - [Triggers](#database-triggers)
   - [Main Control Programs (Anonymous Blocks)](#main-control-programs-anonymous-blocks)
 
 ---
@@ -683,7 +683,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 
 <img width="1414" height="700" alt="צילום מסך 2026-05-28 224807" src="https://github.com/user-attachments/assets/7a3baf90-48fe-4914-809c-86cf63b1da19" />
 
-## Database Triggers
+## Triggers
 
 ### Trigger 1: `trg_sync_vip_tourist_status`
 * **Target Relation (Table):** `public.car_booking`
