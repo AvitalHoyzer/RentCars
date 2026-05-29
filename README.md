@@ -696,7 +696,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 <img width="1246" height="640" alt="צילום מסך 2026-05-29 172751" src="https://github.com/user-attachments/assets/36e8b0ff-c19c-49ad-b5f2-6f19576e07a4" />
 
 
-📜 [RunTrigger2](phase4/RunTriggers/test_trg_sync_vip_tourist_status.sql)
+📜 [RunTrigger1](phase4/RunTriggers/test_trg_sync_vip_tourist_status.sql)
 
 <img width="1348" height="548" alt="צילום מסך 2026-05-29 173420" src="https://github.com/user-attachments/assets/d3f65c14-8833-4718-a01d-600f285a3cd7" />
 
