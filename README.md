@@ -691,7 +691,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 * **Design Objective:** Cross-domain customer tier synchronization.
 * **Technical Overview:** This trigger operates as an event listener for marketing automation. Whenever a new car booking is registered or updated, the underlying trigger function evaluates the transactional volume using the structural **`NEW`** row state. If a rental price exceeds a premium threshold of **$500.00**, the system intercepts the event and automatically executes an ecosystem synchronization protocol, emitting real-time telemetry alerts to unlock corresponding premium benefits and priority restaurant booking status for that unified tourist.
 
-[Trigger1](phase4/Triggers/trg_sync_vip_tourist_status.sql)
+📜 [Trigger1](phase4/Triggers/trg_sync_vip_tourist_status.sql)
 
 <img width="1246" height="640" alt="צילום מסך 2026-05-29 172751" src="https://github.com/user-attachments/assets/36e8b0ff-c19c-49ad-b5f2-6f19576e07a4" />
 
@@ -712,7 +712,7 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 * **Design Objective:** Enforcing defensive business rules and physical capacity constraints.
 * **Technical Overview:** This trigger functions as a server-side gatekeeper to prevent capacity infrastructure overload within the restaurant domain. Before any insert or update statement modifies the database state, the trigger function monitors the incoming record's guest count column (`num_of_people`) via the **`NEW`** row modifier. If a single booking attempts to allocate a table for **more than 20 diners**, the execution is immediately blocked. The trigger throws a severe database exception, halting the transaction execution flow entirely and rolling back the operational statement to protect the target system parameters.
 
-[Trigger2](phase4/Triggers/trg_prevent_excessive_diners.sql)
+📜 [Trigger2](phase4/Triggers/trg_prevent_excessive_diners.sql)
 
 <img width="1396" height="567" alt="צילום מסך 2026-05-29 173554" src="https://github.com/user-attachments/assets/446d994e-037d-4408-a779-e54a673eecbc" />
 
@@ -726,3 +726,43 @@ To allow a single `Review` entry to refer to either a restaurant or a car/compan
 > 1. **Immediate Interception:** When an application context fires a rogue DML request—attempting to register a mass reservation of 30 guests (violating our maximum business safety limit of 20)—the **`BEFORE INSERT`** trigger intercepts the operational stream immediately.
 > 2. **Transaction Abortion:** The system checks the `NEW.num_of_people` property, stops execution from modifying the active table space, and forces a custom server-side error declaration (`SQL state: P0001`). This completely invalidates the injection attempt, keeping restaurant infrastructure capacity perfectly safe.
 
+## Main Control Programs (Anonymous Blocks)
+
+### Main Program 1: `main_program_analytics.sql`
+* **Workflow Focus:** Automated Business Intelligence and Reactive Operations.
+* **Orchestration Sequence:**
+  1. **Function Execution:** Invokes the analytical function `fn_calculate_city_health_index` to assess the economic stability and performance threshold of a specific targeted market (e.g., city of *"Puyang"*).
+  2. **Procedure Call:** Immediately sequences into the batch administrative procedure `pr_apply_strategic_discounts`. This processes the analytical scores across all registered rental companies, executing bulk price markdown DML operations where weak infrastructure scores are detected.
+
+📜 [MainProgram1](phase4/MainPrograms/trg_sync_vip_tourist_status.sql)
+
+<img width="1353" height="768" alt="צילום מסך 2026-05-29 181348" src="https://github.com/user-attachments/assets/1e40dd48-10ff-4e11-ab2b-0060fd2ba5e4" />
+
+<img width="1375" height="703" alt="צילום מסך 2026-05-29 181403" src="https://github.com/user-attachments/assets/f749a303-3ebd-46e5-bf5c-36e0c2eb1f9a" />
+
+> **Orchestration Log Analysis:**
+> The console registry block above demonstrates a flawless, fully-integrated compilation of our architectural components inside `main_program_analytics.sql`.
+>
+> 1. **Cross-Component Handshake:** The anonymous block initiated successfully. In **Step 1**, it safely queried our standalone analytical engine (`fn_calculate_city_health_index`) to return an isolated performance baseline of `50/100` for the city of *"Puyang"*.
+> 2. **High-Volume Transaction Automation:** In **Step 2**, the program invoked the stored procedure `pr_apply_strategic_discounts`. The internal explicit cursor evaluated multiple global markets, skipping highly stable environments while performing automated batch DML updates across weaker sectors (successfully calculating indexes and updating 29, 47, and 23 assets simultaneously).
+> 3. **Fault-Tolerant Exception Interception:** When the workflow reached *Company 21* in *"Tulyushka"*, the 10% promotional reduction attempted to drop a vehicle rate below the systemic baseline limit. The backend schema immediately enforced data security via the `chk_min_price_threshold` rule. Instead of triggering an unhandled fatal environment crash, the procedure’s embedded **`EXCEPTION` clause** successfully intercepted the runtime violation, safely isolated the fault, and allowed the orchestrator to gracefully output the complete operational success sequence (`MAIN PROGRAM 1 COMPLETED SUCCESSFULLY`).
+
+### 2. Main Program 2: `main_program_operations.sql`
+* **Workflow Focus:** Customer-Centric Operations and Dynamic Data Streaming.
+* **Orchestration Sequence:**
+  1. **Procedure Call:** Coordinates cross-domain client scheduling by executing `pr_book_integrated_package`. This safely inserts synchronized reservation lines across both the vehicle rental registries and the restaurant dining registries under an isolated transaction.
+  2. **Function Execution:** Accesses the customer ledger by calling the Ref Cursor function `fn_get_tourist_activity`. The main program loops through the active memory address, fetches the combined historical interactions row-by-row, and outputs real-time auditing metrics to evaluate financial activity.
+
+📜 [MainProgram2](phase4/MainPrograms/test_trg_prevent_excessive_diners.sql)
+
+
+<img width="1401" height="790" alt="צילום מסך 2026-05-29 181752" src="https://github.com/user-attachments/assets/11274635-d5d6-42a6-b5e3-18f3e0a71ae5" />
+
+<img width="1417" height="754" alt="צילום מסך 2026-05-29 181802" src="https://github.com/user-attachments/assets/55e31171-113b-4fd0-abb1-5d28fb483e6a" />
+
+> **Dynamic Integration & Cursor Streaming Proof:**
+> This continuous console stream validates the complete multi-tier execution of `main_program_operations.sql`.
+>
+> 1. **Transactional Multi-DML Pipeline:** The program successfully initiated **Step 1**, calling `pr_book_integrated_package` which processed synchronized inserts concurrently across the distinct schema environments (`car_booking` ID 20023 and `rest_booking` ID 20002).
+> 2. **Live Event Trigger Interception:** Because the generated vehicle package price calculated to $800.00 (bypassing the $500 ceiling), the row-level listener `trg_sync_vip_tourist_status` intercepted the transaction pipeline mid-execution, firing a VIP ecosystem synchronization warning before successfully committing the data layer.
+> 3. **Ref Cursor Extraction Framework:** In **Step 2**, the runtime coordinates shifted to the function layer, fetching the active pipeline address from `fn_get_tourist_activity`. The program effectively cycled through the shared **`REFCURSOR`** memory state, streaming consolidated cross-sector history (Cleanliness, Food, Service) and auditing aggregated financial metrics for *Tourist ID 1* seamlessly.
