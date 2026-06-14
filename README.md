@@ -834,27 +834,42 @@ npm run dev
 
 ## Application Walkthrough & Screens
 
-### 1. Home Page & Search Interface
+### 1. Authentication & User Registration
+A secure entry point that identifies returning tourists or seamlessly registers new users. When a new user logs in, the application automatically triggers an `INSERT` statement to add their profile into the `tourist` database table, ensuring their history, bookings, and preferences are permanently tracked.
+
+<img width="1400" alt="Login Screenshot" src="[PLACEHOLDER_FOR_LOGIN_SCREEN_IMAGE_URL]" />
+
+### 2. Home Page & Search Interface
 The main entry point for tourists. Users can switch between searching for luxury vehicles or fine dining, setting their desired pickup locations, cities, and dates.
 
 <img width="1400" alt="Home Screen Screenshot" src="[PLACEHOLDER_FOR_HOME_SCREEN_IMAGE_URL]" />
 
-### 2. Inventory Catalog
+### 3. Inventory Catalog
 Displays the available rental cars and restaurants based on the user's search criteria. Features dynamic image rendering and interactive selection cards.
 
 <img width="1400" alt="Catalog Screenshot" src="[PLACEHOLDER_FOR_CATALOG_SCREEN_IMAGE_URL]" />
 
-### 3. Checkout & Booking
+### 4. Checkout & Booking
 A smooth, integrated booking experience where users review their selected asset, provide necessary details (like the number of guests), and finalize their reservation securely.
 
 <img width="1400" alt="Checkout Screenshot" src="[PLACEHOLDER_FOR_CHECKOUT_SCREEN_IMAGE_URL]" />
 
-### 4. Admin CRUD Interface
+### 5. Personal Dashboard & History
+A dynamic, personalized view for the logged-in tourist. This screen executes complex relational queries to fetch and display the user's past and upcoming car rentals and restaurant reservations. Whenever a user makes a new booking via the checkout, it is immediately inserted into the database and reflected here in real-time.
+
+<img width="1400" alt="History Screenshot" src="[PLACEHOLDER_FOR_HISTORY_SCREEN_IMAGE_URL]" />
+
+### 6. Interactive Review System
+Allows tourists to leave detailed feedback and numerical ratings for their completed trips or dinners directly from their history panel. The inputs are dynamically inserted into the `review` and `rating` tables in the database, which actively influence the overarching popularity statistics of companies and restaurants.
+
+<img width="1400" alt="Review Screenshot" src="[PLACEHOLDER_FOR_REVIEW_SCREEN_IMAGE_URL]" />
+
+### 7. Admin CRUD Interface
 An exclusive, dynamic control panel for system administrators. It automatically reads the database schemas and provides a form-based interface to perform Create, Read, Update, and Delete operations on any table in the system without writing SQL.
 
 <img width="1400" alt="Admin CRUD Screenshot" src="[PLACEHOLDER_FOR_ADMIN_CRUD_SCREEN_IMAGE_URL]" />
 
-### 5. Business Insights (Analytics & Routines)
+### 8. Business Insights (Analytics & Routines)
 A powerful administrative dashboard connected directly to the PL/pgSQL logic from Phase 4.
 * **Queries:** View available cars in Jerusalem and high-rated vehicles.
 * **Functions:** Calculate the city performance index and stream tourist activity logs (Cursors).
