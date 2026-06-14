@@ -478,6 +478,30 @@ app.post('/api/procedures/apply-discounts', async (req, res) => {
   }
 });
 
+// Procedure 2: Book Integrated Package (Phase 4 Procedure 2)
+app.post('/api/procedures/book-integrated-package', async (req, res) => {
+  const { tourist_id, car_id, pickup_city_id, return_city_id, pickup_date, return_date, rest_id, rest_booking_date, num_of_people } = req.body;
+  const client = await pool.connect();
+  const logs = [];
+
+  try {
+    client.on('notice', (msg) => {
+      logs.push(msg.message);
+    });
+
+    await client.query(
+      'CALL public.pr_book_integrated_package($1, $2, $3, $4, $5, $6, $7, $8, $9)',
+      [tourist_id, car_id, pickup_city_id, return_city_id, pickup_date, return_date, rest_id, rest_booking_date, num_of_people]
+    );
+    res.json({ success: true, logs });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message, logs });
+  } finally {
+    client.release();
+  }
+});
+
 // Function 1: Get Tourist Activity Cursor (Phase 4 Function 1)
 app.get('/api/functions/tourist-activity/:id', async (req, res) => {
   const touristId = req.params.id;

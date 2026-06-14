@@ -920,6 +920,19 @@ export default function App() {
   const [activityTouristId, setActivityTouristId] = useState<string>('1');
   const [activityRows, setActivityRows] = useState<any[]>([]);
 
+  const [pkgFormData, setPkgFormData] = useState({
+    touristId: '1',
+    carId: '1',
+    pickupCityId: '1',
+    returnCityId: '1',
+    pickupDate: '2026-07-01',
+    returnDate: '2026-07-05',
+    restId: '1',
+    restBookingDate: '2026-07-01',
+    numOfPeople: '2'
+  });
+  const [showPkgForm, setShowPkgForm] = useState(false);
+
   // Fetch lists concurrently via Promise.all
   const fetchInitialDbData = async () => {
     try {
@@ -1395,6 +1408,37 @@ export default function App() {
       const data = await res.json();
       if (data.success) {
         setSubprogramLogs(prev => [...prev, ...data.logs, 'Procedure executed successfully.']);
+        fetchInitialDbData();
+      } else {
+        setSubprogramLogs(prev => [...prev, ...data.logs, `Error: ${data.error}`]);
+      }
+    } catch (err: any) {
+      setSubprogramLogs(prev => [...prev, `Network error: ${err.message}`]);
+    }
+  };
+
+  const runBookPackageProcedure = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubprogramLogs(['Calling procedure public.pr_book_integrated_package()...']);
+    try {
+      const res = await fetch('/api/procedures/book-integrated-package', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tourist_id: Number(pkgFormData.touristId),
+          car_id: Number(pkgFormData.carId),
+          pickup_city_id: Number(pkgFormData.pickupCityId),
+          return_city_id: Number(pkgFormData.returnCityId),
+          pickup_date: pkgFormData.pickupDate,
+          return_date: pkgFormData.returnDate,
+          rest_id: Number(pkgFormData.restId),
+          rest_booking_date: pkgFormData.restBookingDate,
+          num_of_people: Number(pkgFormData.numOfPeople)
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubprogramLogs(prev => [...prev, ...data.logs, 'Integrated Package booked successfully.']);
         fetchInitialDbData();
       } else {
         setSubprogramLogs(prev => [...prev, ...data.logs, `Error: ${data.error}`]);
@@ -2423,6 +2467,41 @@ export default function App() {
                     >
                       Apply Strategic Discounting (10%)
                     </button>
+                  </div>
+
+                  {/* Button 2: Procedure pr_book_integrated_package */}
+                  <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-center transition-all">
+                    {!showPkgForm ? (
+                      <button
+                        onClick={() => setShowPkgForm(true)}
+                        className="gold-btn w-full text-xs uppercase tracking-widest"
+                      >
+                        Book Integrated Package
+                      </button>
+                    ) : (
+                      <div className="space-y-2 text-left">
+                        <div className="flex justify-between items-center mb-1">
+                          <p className="text-[10px] font-bold text-gold uppercase tracking-widest">Book Integrated Package (Procedure)</p>
+                          <button onClick={() => setShowPkgForm(false)} className="text-white/50 hover:text-white text-xs">✕</button>
+                        </div>
+                        <form onSubmit={runBookPackageProcedure} className="space-y-2">
+                          <div className="grid grid-cols-2 gap-2">
+                            <input type="number" placeholder="Tourist ID" className="glass-input px-2 py-1 text-[10px] rounded-lg" value={pkgFormData.touristId} onChange={e => setPkgFormData({...pkgFormData, touristId: e.target.value})} required />
+                            <input type="number" placeholder="Car ID" className="glass-input px-2 py-1 text-[10px] rounded-lg" value={pkgFormData.carId} onChange={e => setPkgFormData({...pkgFormData, carId: e.target.value})} required />
+                            <input type="number" placeholder="Pickup City ID" className="glass-input px-2 py-1 text-[10px] rounded-lg" value={pkgFormData.pickupCityId} onChange={e => setPkgFormData({...pkgFormData, pickupCityId: e.target.value})} required />
+                            <input type="number" placeholder="Return City ID" className="glass-input px-2 py-1 text-[10px] rounded-lg" value={pkgFormData.returnCityId} onChange={e => setPkgFormData({...pkgFormData, returnCityId: e.target.value})} required />
+                            <input type="date" className="glass-input px-2 py-1 text-[10px] rounded-lg" value={pkgFormData.pickupDate} onChange={e => setPkgFormData({...pkgFormData, pickupDate: e.target.value})} required />
+                            <input type="date" className="glass-input px-2 py-1 text-[10px] rounded-lg" value={pkgFormData.returnDate} onChange={e => setPkgFormData({...pkgFormData, returnDate: e.target.value})} required />
+                            <input type="number" placeholder="Rest ID" className="glass-input px-2 py-1 text-[10px] rounded-lg" value={pkgFormData.restId} onChange={e => setPkgFormData({...pkgFormData, restId: e.target.value})} required />
+                            <input type="date" className="glass-input px-2 py-1 text-[10px] rounded-lg" value={pkgFormData.restBookingDate} onChange={e => setPkgFormData({...pkgFormData, restBookingDate: e.target.value})} required />
+                            <input type="number" placeholder="Num of People" className="glass-input px-2 py-1 text-[10px] rounded-lg col-span-2" value={pkgFormData.numOfPeople} onChange={e => setPkgFormData({...pkgFormData, numOfPeople: e.target.value})} required />
+                          </div>
+                          <button type="submit" className="gold-btn w-full text-[10px] py-1.5 uppercase tracking-widest mt-2">
+                            Execute Booking
+                          </button>
+                        </form>
+                      </div>
+                    )}
                   </div>
 
                   {/* Button 2: Function fn_calculate_city_health_index */}
