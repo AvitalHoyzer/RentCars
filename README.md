@@ -834,21 +834,22 @@ npm run dev
 
 ## Application Walkthrough & Screens
 
-### 1. Authentication & User Registration
-A secure entry point that identifies returning tourists or seamlessly registers new users. When a new user logs in, the application automatically triggers an `INSERT` statement to add their profile into the `tourist` database table, ensuring their history, bookings, and preferences are permanently tracked.
 
-<img width="956" height="490" alt="image" src="https://github.com/user-attachments/assets/acd9ad2c-8809-4112-9fd5-01e8ddd20607" />
-
-<img width="632" height="104" alt="image" src="https://github.com/user-attachments/assets/1e74b7b1-a548-416b-8b6c-5a229f06b6c3" />
-
-
-### 2. Home Page & Search Interface
+### 1. Home Page & Search Interface
 The main entry point for tourists. Users can switch between searching for luxury vehicles or fine dining, setting their desired pickup locations, cities, and dates.
 
 <img width="958" height="494" alt="צילום מסך 2026-06-14 211636" src="https://github.com/user-attachments/assets/8ae6304f-8359-4367-88a6-a4d344b7307a" />
 
-
 <img width="956" height="496" alt="צילום מסך 2026-06-14 211931" src="https://github.com/user-attachments/assets/7a5c363d-7e70-495b-9b48-53c448175dfb" />
+
+
+### 2. Authentication & User Registration
+A secure entry point that identifies returning tourists or seamlessly registers new users. When a new user logs in, the application automatically triggers an `INSERT` statement to add their profile into the `tourist` database table, ensuring their history, bookings, and preferences are permanently tracked.
+
+<img width="956" height="490" alt="image" src="https://github.com/user-attachments/assets/acd9ad2c-8809-4112-9fd5-01e8ddd20607" />
+
+<img width="713" height="170" alt="image" src="https://github.com/user-attachments/assets/990e3dc1-e3d8-4e07-ad59-b7755f31fab1" />
+
 
 ### 3. Inventory Catalog
 Displays the available rental cars and restaurants based on the user's search criteria. Features dynamic image rendering and interactive selection cards.
@@ -857,12 +858,14 @@ Displays the available rental cars and restaurants based on the user's search cr
 
 <img width="958" height="496" alt="image" src="https://github.com/user-attachments/assets/781b94a6-d409-43ae-b79c-509c451e5b49" />
 
+
 ### 4. Checkout & Booking
 A smooth, integrated booking experience where users review their selected asset, provide necessary details (like the number of guests), and finalize their reservation securely.
 
 <img width="956" height="493" alt="image" src="https://github.com/user-attachments/assets/9fca2890-f4fa-4e7b-9e9e-e3dac6f61976" />
 
 <img width="957" height="482" alt="image" src="https://github.com/user-attachments/assets/c293eef6-725f-41ff-9f40-2abf9174ad1d" />
+
 
 ### 5. Personal Dashboard & History
 A dynamic, personalized view for the logged-in tourist. This screen executes complex relational queries to fetch and display the user's past and upcoming car rentals and restaurant reservations. Whenever a user makes a new booking via the checkout, it is immediately inserted into the database and reflected here in real-time.
