@@ -837,44 +837,69 @@ npm run dev
 ### 1. Authentication & User Registration
 A secure entry point that identifies returning tourists or seamlessly registers new users. When a new user logs in, the application automatically triggers an `INSERT` statement to add their profile into the `tourist` database table, ensuring their history, bookings, and preferences are permanently tracked.
 
-<img width="1400" alt="Login Screenshot" src="[PLACEHOLDER_FOR_LOGIN_SCREEN_IMAGE_URL]" />
+<img width="956" height="490" alt="image" src="https://github.com/user-attachments/assets/acd9ad2c-8809-4112-9fd5-01e8ddd20607" />
+
+<img width="632" height="104" alt="image" src="https://github.com/user-attachments/assets/1e74b7b1-a548-416b-8b6c-5a229f06b6c3" />
+
 
 ### 2. Home Page & Search Interface
 The main entry point for tourists. Users can switch between searching for luxury vehicles or fine dining, setting their desired pickup locations, cities, and dates.
 
-<img width="1400" alt="Home Screen Screenshot" src="[PLACEHOLDER_FOR_HOME_SCREEN_IMAGE_URL]" />
+<img width="958" height="494" alt="צילום מסך 2026-06-14 211636" src="https://github.com/user-attachments/assets/8ae6304f-8359-4367-88a6-a4d344b7307a" />
+
+
+<img width="956" height="496" alt="צילום מסך 2026-06-14 211931" src="https://github.com/user-attachments/assets/7a5c363d-7e70-495b-9b48-53c448175dfb" />
 
 ### 3. Inventory Catalog
 Displays the available rental cars and restaurants based on the user's search criteria. Features dynamic image rendering and interactive selection cards.
 
-<img width="1400" alt="Catalog Screenshot" src="[PLACEHOLDER_FOR_CATALOG_SCREEN_IMAGE_URL]" />
+<img width="956" height="491" alt="image" src="https://github.com/user-attachments/assets/729faaf7-61ec-4c29-b9e3-d591c587d702" />
+
+<img width="958" height="496" alt="image" src="https://github.com/user-attachments/assets/781b94a6-d409-43ae-b79c-509c451e5b49" />
 
 ### 4. Checkout & Booking
 A smooth, integrated booking experience where users review their selected asset, provide necessary details (like the number of guests), and finalize their reservation securely.
 
-<img width="1400" alt="Checkout Screenshot" src="[PLACEHOLDER_FOR_CHECKOUT_SCREEN_IMAGE_URL]" />
+<img width="956" height="493" alt="image" src="https://github.com/user-attachments/assets/9fca2890-f4fa-4e7b-9e9e-e3dac6f61976" />
+
+<img width="957" height="482" alt="image" src="https://github.com/user-attachments/assets/c293eef6-725f-41ff-9f40-2abf9174ad1d" />
 
 ### 5. Personal Dashboard & History
 A dynamic, personalized view for the logged-in tourist. This screen executes complex relational queries to fetch and display the user's past and upcoming car rentals and restaurant reservations. Whenever a user makes a new booking via the checkout, it is immediately inserted into the database and reflected here in real-time.
 
-<img width="1400" alt="History Screenshot" src="[PLACEHOLDER_FOR_HISTORY_SCREEN_IMAGE_URL]" />
+<img width="958" height="491" alt="image" src="https://github.com/user-attachments/assets/ae26991c-ab0e-4649-a6b8-491532f51a90" />
+
 
 ### 6. Interactive Review System
 Allows tourists to leave detailed feedback and numerical ratings for their completed trips or dinners directly from their history panel. The inputs are dynamically inserted into the `review` and `rating` tables in the database, which actively influence the overarching popularity statistics of companies and restaurants.
 
-<img width="1400" alt="Review Screenshot" src="[PLACEHOLDER_FOR_REVIEW_SCREEN_IMAGE_URL]" />
+<img width="953" height="440" alt="image" src="https://github.com/user-attachments/assets/2f89a860-c6c3-4105-81a3-fe3efd3bbc98" />
+
+<img width="958" height="491" alt="image" src="https://github.com/user-attachments/assets/6d77a5d0-a748-4560-8be3-f8c7708c8a4c" />
+
+<img width="611" height="187" alt="image" src="https://github.com/user-attachments/assets/4b43fd80-3e67-43a1-939a-3f57a110a8e5" />
+
 
 ### 7. Admin CRUD Interface
 An exclusive, dynamic control panel for system administrators. It automatically reads the database schemas and provides a form-based interface to perform Create, Read, Update, and Delete operations on any table in the system without writing SQL.
 
-<img width="1400" alt="Admin CRUD Screenshot" src="[PLACEHOLDER_FOR_ADMIN_CRUD_SCREEN_IMAGE_URL]" />
+<img width="959" height="493" alt="image" src="https://github.com/user-attachments/assets/accf8510-40d5-4cdf-9f67-2aef480c092e" />
+
+<img width="958" height="495" alt="image" src="https://github.com/user-attachments/assets/2302bc8a-ac2e-41c3-a504-31c8bfa67151" />
+
+<img width="956" height="493" alt="image" src="https://github.com/user-attachments/assets/769ccaa6-a92e-4bfc-9dc9-c5f3eec4bbd7" />
+
+<img width="955" height="488" alt="image" src="https://github.com/user-attachments/assets/d761a93d-65ab-4962-ada0-a76c6e3132a4" />
+
 
 ### 8. Business Insights (Analytics & Routines)
-A powerful administrative dashboard connected directly to the PL/pgSQL logic from Phase 4.
+A powerful administrative dashboard connected directly to the PL/pgSQL logic and the Queries.
 * **Queries:** View available cars in Jerusalem and high-rated vehicles.
 * **Functions:** Calculate the city performance index and stream tourist activity logs (Cursors).
 * **Procedures:** 
   * Execute the `pr_apply_strategic_discounts` procedure to dynamically update prices with the click of a button.
   * Execute the `pr_book_integrated_package` procedure via a dedicated form to seamlessly book a unified package (Car + Restaurant) in a single transaction directly from the dashboard.
 
-<img width="1400" alt="Business Insights Screenshot" src="[PLACEHOLDER_FOR_BUSINESS_INSIGHTS_SCREEN_IMAGE_URL]" />
+<img width="958" height="491" alt="image" src="https://github.com/user-attachments/assets/6e2d4288-e256-4baf-a64f-8f2255efd6e2" />
+
+<img width="958" height="440" alt="image" src="https://github.com/user-attachments/assets/a145793a-a3bd-4bc5-ace6-bdbd023ba2af" />
