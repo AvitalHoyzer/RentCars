@@ -1,11 +1,11 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { 
-  Car as CarIcon, 
-  History, 
-  ChevronLeft, 
-  Star, 
-  Settings2, 
-  Briefcase, 
+import {
+  Car as CarIcon,
+  History,
+  ChevronLeft,
+  Star,
+  Settings2,
+  Briefcase,
   Users,
   CheckCircle2,
   MapPin,
@@ -200,14 +200,14 @@ const TABLE_SCHEMAS: Record<string, { label: string; pk: string; fields: { name:
 
 // --- Components ---
 
-const Navbar = ({ 
-  user, 
-  onLogout, 
-  navigateTo, 
-  currentPage 
-}: { 
-  user: Tourist | null, 
-  onLogout: () => void, 
+const Navbar = ({
+  user,
+  onLogout,
+  navigateTo,
+  currentPage
+}: {
+  user: Tourist | null,
+  onLogout: () => void,
   navigateTo: (p: Page) => void,
   currentPage: Page
 }) => (
@@ -216,33 +216,33 @@ const Navbar = ({
       <CarIcon className="text-gold w-8 h-8" />
       <span className="text-2xl font-serif font-bold tracking-tighter gold-text">DRIVE & DINE</span>
     </div>
-    
+
     <div className="hidden md:flex items-center gap-6">
-      <button 
+      <button
         onClick={() => navigateTo('home')}
         className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-gold ${currentPage === 'home' ? 'text-gold' : 'text-white/70'}`}
       >
         Home
       </button>
-      <button 
+      <button
         onClick={() => navigateTo('inventory')}
         className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-gold ${currentPage === 'inventory' ? 'text-gold' : 'text-white/70'}`}
       >
         Catalog
       </button>
-      <button 
+      <button
         onClick={() => navigateTo('history')}
         className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-gold ${currentPage === 'history' ? 'text-gold' : 'text-white/70'}`}
       >
         History
       </button>
-      <button 
+      <button
         onClick={() => navigateTo('admin')}
         className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-gold ${currentPage === 'admin' ? 'text-gold' : 'text-white/70'}`}
       >
         Admin CRUD
       </button>
-      <button 
+      <button
         onClick={() => navigateTo('analytics')}
         className={`text-sm font-bold uppercase tracking-widest transition-colors hover:text-gold ${currentPage === 'analytics' ? 'text-gold' : 'text-white/70'}`}
       >
@@ -253,7 +253,7 @@ const Navbar = ({
     <div className="flex items-center gap-4">
       {user ? (
         <div className="flex items-center gap-4">
-          <div 
+          <div
             onClick={() => navigateTo('profile')}
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 hover:border-gold cursor-pointer transition-all group"
             title="Edit Profile"
@@ -261,16 +261,16 @@ const Navbar = ({
             <User className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
             <span className="text-xs font-bold uppercase tracking-wider">{user.firstName}</span>
           </div>
-          <button 
-            onClick={onLogout} 
+          <button
+            onClick={onLogout}
             className="gold-btn py-2 px-6 text-sm"
           >
             Sign Out
           </button>
         </div>
       ) : (
-        <button 
-          onClick={() => navigateTo('login')} 
+        <button
+          onClick={() => navigateTo('login')}
           className="gold-btn py-2 px-6 text-sm"
         >
           Sign In
@@ -370,7 +370,7 @@ const AuthGate = ({ onLogin, onCancel }: { onLogin: (user: Tourist) => void; onC
   return (
     <div className="min-h-screen w-full bg-hero flex items-center justify-center p-6 relative overflow-y-auto">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" />
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="glass-panel p-8 md:p-10 w-full max-w-md relative z-10"
@@ -391,52 +391,52 @@ const AuthGate = ({ onLogin, onCancel }: { onLogin: (user: Tourist) => void; onC
             <>
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Passport Number</label>
-                <input 
+                <input
                   name="passportNumber"
                   value={formData.passportNumber}
                   onChange={handleChange}
                   required
-                  className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
-                  placeholder="P1234567" 
+                  className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
+                  placeholder="P1234567"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">First Name</label>
-                  <input 
+                  <input
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
                     required
-                    className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
-                    placeholder="John" 
+                    className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
+                    placeholder="John"
                   />
                 </div>
                 <div className="space-y-1">
                   <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Last Name</label>
-                  <input 
+                  <input
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
                     required
-                    className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
-                    placeholder="Doe" 
+                    className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
+                    placeholder="Doe"
                   />
                 </div>
               </div>
             </>
           )}
-          
+
           <div className="space-y-1">
             <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Email</label>
-            <input 
+            <input
               name="email"
               value={formData.email}
               onChange={handleChange}
               type="email"
               required
-              className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
-              placeholder="john@example.com" 
+              className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
+              placeholder="john@example.com"
             />
           </div>
 
@@ -444,49 +444,49 @@ const AuthGate = ({ onLogin, onCancel }: { onLogin: (user: Tourist) => void; onC
             <>
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Phone</label>
-                <input 
+                <input
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   type="tel"
                   required
-                  className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
-                  placeholder="+1 234 567 890" 
+                  className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
+                  placeholder="+1 234 567 890"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Username</label>
-                  <input 
+                  <input
                     name="userName"
                     value={formData.userName}
                     onChange={handleChange}
                     required
-                    className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
-                    placeholder="johndoe123" 
+                    className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
+                    placeholder="johndoe123"
                   />
                 </div>
                 <div className="space-y-1">
                   <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Preferred Language</label>
-                  <input 
+                  <input
                     name="language"
                     value={formData.language}
                     onChange={handleChange}
                     required
-                    className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
-                    placeholder="English" 
+                    className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
+                    placeholder="English"
                   />
                 </div>
               </div>
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Birthday</label>
-                <input 
+                <input
                   name="birthday"
                   value={formData.birthday}
                   onChange={handleChange}
                   type="date"
                   required
-                  className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
+                  className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
                 />
               </div>
             </>
@@ -494,14 +494,14 @@ const AuthGate = ({ onLogin, onCancel }: { onLogin: (user: Tourist) => void; onC
 
           <div className="space-y-1">
             <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Password</label>
-            <input 
+            <input
               name="password"
               value={formData.password}
               onChange={handleChange}
               type="password"
               required
-              className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold" 
-              placeholder="••••••••" 
+              className="glass-input w-full px-4 py-3 rounded-xl text-black font-bold"
+              placeholder="••••••••"
             />
           </div>
 
@@ -511,7 +511,7 @@ const AuthGate = ({ onLogin, onCancel }: { onLogin: (user: Tourist) => void; onC
         </form>
 
         {onCancel && (
-          <button 
+          <button
             type="button"
             onClick={onCancel}
             className="w-full py-3 mt-3 rounded-xl border border-white/10 text-white/50 hover:text-white text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all text-center"
@@ -533,11 +533,11 @@ const AuthGate = ({ onLogin, onCancel }: { onLogin: (user: Tourist) => void; onC
 
 const BookingDetailModal = ({ booking, onClose }: { booking: any, onClose: () => void }) => {
   if (!booking) return null;
-  
+
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={onClose} />
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         className="glass-panel p-8 md:p-10 w-full max-w-2xl relative z-10 overflow-y-auto max-h-[90vh]"
@@ -598,12 +598,12 @@ const BookingDetailModal = ({ booking, onClose }: { booking: any, onClose: () =>
   );
 };
 
-const ProfilePage = ({ 
-  user, 
+const ProfilePage = ({
+  user,
   onUpdateUser,
-  navigateTo 
-}: { 
-  user: any, 
+  navigateTo
+}: {
+  user: any,
   onUpdateUser: (u: any) => void,
   navigateTo: (p: Page) => void
 }) => {
@@ -704,7 +704,7 @@ const ProfilePage = ({
   }
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       className="max-w-xl mx-auto px-6 glass-panel p-8 rounded-3xl border border-white/10"
@@ -731,71 +731,71 @@ const ProfilePage = ({
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1">
             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">First Name</label>
-            <input 
+            <input
               name="first_name"
               value={formData.first_name}
               onChange={handleChange}
               required
-              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
             />
           </div>
           <div className="space-y-1">
             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Last Name</label>
-            <input 
+            <input
               name="last_name"
               value={formData.last_name}
               onChange={handleChange}
               required
-              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
             />
           </div>
         </div>
 
         <div className="space-y-1">
           <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Email</label>
-          <input 
+          <input
             name="email"
             value={formData.email}
             onChange={handleChange}
             type="email"
             required
-            className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+            className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
           />
         </div>
 
         <div className="space-y-1">
           <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Phone</label>
-          <input 
+          <input
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             type="text"
             required
-            className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+            className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
           />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1">
             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Preferred Language</label>
-            <input 
+            <input
               name="language"
               value={formData.language}
               onChange={handleChange}
               type="text"
               required
-              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
             />
           </div>
           <div className="space-y-1">
             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Passport Number</label>
-            <input 
+            <input
               name="passportnumber"
               value={formData.passportnumber}
               onChange={handleChange}
               type="text"
               required
-              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
             />
           </div>
         </div>
@@ -803,37 +803,37 @@ const ProfilePage = ({
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1">
             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Username</label>
-            <input 
+            <input
               name="user_name"
               value={formData.user_name}
               onChange={handleChange}
               type="text"
               required
-              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
             />
           </div>
           <div className="space-y-1">
             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Birthday</label>
-            <input 
+            <input
               name="birthday"
               value={formData.birthday}
               onChange={handleChange}
               type="date"
               required
-              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+              className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
             />
           </div>
         </div>
 
         <div className="space-y-1">
           <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Password</label>
-          <input 
+          <input
             name="password"
             value={formData.password}
             onChange={handleChange}
             type="password"
             required
-            className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm" 
+            className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold text-sm"
           />
         </div>
 
@@ -848,7 +848,7 @@ const ProfilePage = ({
 export default function App() {
   const [page, setPage] = useState<Page>('home');
   const [sector, setSector] = useState<Sector>('cars');
-  
+
   // Persisted user session in localStorage
   const [user, setUser] = useState<Tourist | null>(() => {
     const saved = localStorage.getItem('rentcars_user');
@@ -971,11 +971,11 @@ export default function App() {
           price_per_day: Number(c.price_per_day),
           car_features: c.car_features ? c.car_features.split(', ') : ['Bluetooth', 'Premium Sound'],
           status: c.status as any,
-          image: c.car_type === 'SUV' 
+          image: c.car_type === 'SUV'
             ? 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=800'
             : c.car_type === 'Sports'
-            ? 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800'
-            : 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800',
+              ? 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800'
+              : 'https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800',
           company_id: c.company_id,
           city_id: c.resolved_city_id
         })));
@@ -1085,7 +1085,7 @@ export default function App() {
   const confirmCarBooking = async () => {
     if (!selectedCar || !user) return;
     const dbUser: any = user;
-    
+
     try {
       const res = await fetch('/api/tables/car_booking', {
         method: 'POST',
@@ -1303,8 +1303,8 @@ export default function App() {
     setCrudSuccess(null);
 
     const pk = TABLE_SCHEMAS[selectedTable].pk;
-    const url = isEditMode 
-      ? `/api/tables/${selectedTable}/${crudFormData[pk]}` 
+    const url = isEditMode
+      ? `/api/tables/${selectedTable}/${crudFormData[pk]}`
       : `/api/tables/${selectedTable}`;
     const method = isEditMode ? 'PUT' : 'POST';
 
@@ -1367,7 +1367,7 @@ export default function App() {
     if (colName === 'city_id' && row.resolved_city) return row.resolved_city;
     if (colName === 'country_id' && row.resolved_country) return row.resolved_country;
     if (colName === 'review_id' && row.resolved_review) return row.resolved_review;
-    
+
     const val = row[colName];
     if (val === null || val === undefined) return '-';
     return String(val);
@@ -1440,7 +1440,7 @@ export default function App() {
 
   // Setup dynamic background style based on active sector
   const heroStyle = {
-    backgroundImage: sector === 'cars' 
+    backgroundImage: sector === 'cars'
       ? `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1920')`
       : `linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1920')`,
     backgroundAttachment: 'fixed',
@@ -1451,13 +1451,13 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col overflow-y-auto" style={heroStyle}>
       <Navbar user={user} onLogout={handleLogout} navigateTo={navigateTo} currentPage={page} />
-      
+
       <main className="flex-grow relative z-10 pt-24">
         <AnimatePresence mode="wait">
-          
+
           {/* ==================== HOME PAGE ==================== */}
           {page === 'home' && (
-            <motion.div 
+            <motion.div
               key="home"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -1466,14 +1466,14 @@ export default function App() {
             >
               <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-start lg:items-center mb-20">
                 <div className="space-y-6">
-                  <motion.div 
+                  <motion.div
                     initial={{ x: -50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#4c3f16] border border-gold/30 text-gold text-[10px] font-bold uppercase tracking-[0.3em]"
                   >
                     <Star className="w-3 h-3 fill-gold" /> Integrated Ecosystem
                   </motion.div>
-                  <motion.h1 
+                  <motion.h1
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     className="text-6xl md:text-8xl font-serif font-bold leading-none tracking-tighter"
@@ -1495,7 +1495,7 @@ export default function App() {
                 </div>
 
                 {/* Combined Search Panel */}
-                <motion.div 
+                <motion.div
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   className="glass-panel p-8 md:p-10 space-y-6"
@@ -1505,13 +1505,13 @@ export default function App() {
                       {sector === 'cars' ? 'Search Luxury Vehicles' : 'Search Fine Dining'}
                     </h3>
                     <div className="flex bg-white/5 p-1 rounded-xl border border-white/10">
-                      <button 
+                      <button
                         onClick={() => setSector('cars')}
                         className={`px-4 py-1.5 rounded-lg text-xs font-bold uppercase transition-all ${sector === 'cars' ? 'bg-gold text-black' : 'text-white/60 hover:text-white'}`}
                       >
                         Cars
                       </button>
-                      <button 
+                      <button
                         onClick={() => setSector('restaurants')}
                         className={`px-4 py-1.5 rounded-lg text-xs font-bold uppercase transition-all ${sector === 'restaurants' ? 'bg-gold text-black' : 'text-white/60 hover:text-white'}`}
                       >
@@ -1524,7 +1524,7 @@ export default function App() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Pickup City</label>
-                        <select 
+                        <select
                           className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                           value={searchParams.pickupLocationId}
                           onChange={(e) => setSearchParams({ ...searchParams, pickupLocationId: e.target.value })}
@@ -1535,7 +1535,7 @@ export default function App() {
                       </div>
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Return City</label>
-                        <select 
+                        <select
                           className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                           value={searchParams.returnLocationId}
                           onChange={(e) => setSearchParams({ ...searchParams, returnLocationId: e.target.value })}
@@ -1546,7 +1546,7 @@ export default function App() {
                       </div>
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Pickup Date</label>
-                        <input 
+                        <input
                           type="date"
                           className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                           value={searchParams.pickupDate}
@@ -1555,7 +1555,7 @@ export default function App() {
                       </div>
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Return Date</label>
-                        <input 
+                        <input
                           type="date"
                           className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                           value={searchParams.returnDate}
@@ -1567,7 +1567,7 @@ export default function App() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Dining City</label>
-                        <select 
+                        <select
                           className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                           value={restSearchParams.cityId}
                           onChange={(e) => setRestSearchParams({ ...restSearchParams, cityId: e.target.value })}
@@ -1577,7 +1577,7 @@ export default function App() {
                       </div>
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Cuisine Type</label>
-                        <select 
+                        <select
                           className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                           value={restSearchParams.cuisineType}
                           onChange={(e) => setRestSearchParams({ ...restSearchParams, cuisineType: e.target.value })}
@@ -1591,7 +1591,7 @@ export default function App() {
                       </div>
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Diners Count</label>
-                        <input 
+                        <input
                           type="number"
                           min="1"
                           className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
@@ -1601,7 +1601,7 @@ export default function App() {
                       </div>
                       <div className="space-y-1">
                         <label className="text-[10px] font-bold text-gold uppercase tracking-widest ml-1">Reservation Date</label>
-                        <input 
+                        <input
                           type="date"
                           className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                           value={restSearchParams.bookingDate}
@@ -1611,7 +1611,7 @@ export default function App() {
                     </div>
                   )}
 
-                  <button 
+                  <button
                     onClick={() => navigateTo('inventory')}
                     className="gold-btn w-full py-4 flex items-center justify-center gap-2 uppercase tracking-widest text-sm"
                   >
@@ -1624,7 +1624,7 @@ export default function App() {
 
           {/* ==================== CATALOG PAGE ==================== */}
           {page === 'inventory' && (
-            <motion.div 
+            <motion.div
               key="inventory"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -1634,13 +1634,13 @@ export default function App() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
                 <div className="space-y-2">
                   <div className="flex bg-white/5 p-1 rounded-xl border border-white/10 w-fit mb-2">
-                    <button 
+                    <button
                       onClick={() => setSector('cars')}
                       className={`px-6 py-2 rounded-lg text-xs font-bold uppercase transition-all ${sector === 'cars' ? 'bg-gold text-black' : 'text-white/60 hover:text-white'}`}
                     >
                       Premium Cars
                     </button>
-                    <button 
+                    <button
                       onClick={() => setSector('restaurants')}
                       className={`px-6 py-2 rounded-lg text-xs font-bold uppercase transition-all ${sector === 'restaurants' ? 'bg-gold text-black' : 'text-white/60 hover:text-white'}`}
                     >
@@ -1657,7 +1657,7 @@ export default function App() {
                   <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
                     <div className="flex flex-col gap-1">
                       <span className="text-[10px] font-bold text-gold uppercase tracking-widest">City</span>
-                      <select 
+                      <select
                         value={searchParams.pickupLocationId}
                         onChange={(e) => setSearchParams({ ...searchParams, pickupLocationId: e.target.value })}
                         className="glass-input px-4 py-2 rounded-xl text-black font-bold text-xs min-w-[130px]"
@@ -1670,7 +1670,7 @@ export default function App() {
                     </div>
                     <div className="flex flex-col gap-1">
                       <span className="text-[10px] font-bold text-gold uppercase tracking-widest">Car Type</span>
-                      <select 
+                      <select
                         value={searchParams.carType}
                         onChange={(e) => setSearchParams({ ...searchParams, carType: e.target.value })}
                         className="glass-input px-4 py-2 rounded-xl text-black font-bold text-xs min-w-[130px]"
@@ -1684,7 +1684,7 @@ export default function App() {
                     </div>
                     <div className="flex flex-col gap-1">
                       <span className="text-[10px] font-bold text-gold uppercase tracking-widest">Min Seats</span>
-                      <select 
+                      <select
                         value={searchParams.seatsNumber}
                         onChange={(e) => setSearchParams({ ...searchParams, seatsNumber: e.target.value })}
                         className="glass-input px-4 py-2 rounded-xl text-black font-bold text-xs min-w-[110px]"
@@ -1701,7 +1701,7 @@ export default function App() {
                   <div className="flex flex-wrap gap-4 mt-4 md:mt-0">
                     <div className="flex flex-col gap-1">
                       <span className="text-[10px] font-bold text-gold uppercase tracking-widest">Cuisine Type</span>
-                      <select 
+                      <select
                         value={restSearchParams.cuisineType}
                         onChange={(e) => setRestSearchParams({ ...restSearchParams, cuisineType: e.target.value })}
                         className="glass-input px-4 py-2 rounded-xl text-black font-bold text-xs min-w-[130px]"
@@ -1715,7 +1715,7 @@ export default function App() {
                     </div>
                     <div className="flex flex-col gap-1">
                       <span className="text-[10px] font-bold text-gold uppercase tracking-widest">City</span>
-                      <select 
+                      <select
                         value={restSearchParams.cityId}
                         onChange={(e) => setRestSearchParams({ ...restSearchParams, cityId: e.target.value })}
                         className="glass-input px-4 py-2 rounded-xl text-black font-bold text-xs min-w-[130px]"
@@ -1734,15 +1734,15 @@ export default function App() {
                 <div className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredCars.slice(0, visibleCarsCount).map(car => (
-                      <div 
+                      <div
                         key={car.car_id}
                         className="glass-panel group cursor-pointer overflow-hidden rounded-3xl flex flex-col justify-between h-[450px]"
                         onClick={() => { setSelectedCar(car); navigateTo('details'); }}
                       >
                         <div className="relative h-56 bg-neutral-900 flex items-center justify-center overflow-hidden">
                           {car.image ? (
-                            <img 
-                              src={car.image} 
+                            <img
+                              src={car.image}
                               alt={`${car.brand} ${car.model}`}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
@@ -1765,7 +1765,7 @@ export default function App() {
                               <span>Year: {car.year}</span>
                             </div>
                           </div>
-                          <button 
+                          <button
                             onClick={(e) => { e.stopPropagation(); handleBookNow(car); }}
                             className="w-full py-3 mt-4 rounded-xl border border-gold/30 text-gold font-bold text-xs uppercase hover:bg-gold hover:text-black transition-all"
                           >
@@ -1777,7 +1777,7 @@ export default function App() {
                   </div>
                   {filteredCars.length > visibleCarsCount && (
                     <div className="flex justify-center pt-4">
-                      <button 
+                      <button
                         onClick={() => setVisibleCarsCount(prev => prev + 24)}
                         className="gold-btn py-3 px-8 uppercase tracking-widest text-xs"
                       >
@@ -1790,24 +1790,24 @@ export default function App() {
                 <div className="space-y-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredRestaurants.slice(0, visibleRestsCount).map(rest => (
-                      <div 
+                      <div
                         key={rest.rest_id}
                         className="glass-panel group cursor-pointer overflow-hidden rounded-3xl flex flex-col justify-between h-[450px]"
                         onClick={() => { setSelectedRest(rest); navigateTo('details'); }}
                       >
                         <div className="relative h-56 bg-neutral-900 flex items-center justify-center overflow-hidden">
-                          <img 
+                          <img
                             src={
-                              rest.cuisine_type?.toLowerCase().includes('italian') 
+                              rest.cuisine_type?.toLowerCase().includes('italian')
                                 ? 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800'
                                 : rest.cuisine_type?.toLowerCase().includes('french')
-                                ? 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=800'
-                                : rest.cuisine_type?.toLowerCase().includes('japanese') || rest.cuisine_type?.toLowerCase().includes('sushi')
-                                ? 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80&w=800'
-                                : rest.cuisine_type?.toLowerCase().includes('steak')
-                                ? 'https://images.unsplash.com/photo-1432139548705-1744ad99741c?auto=format&fit=crop&q=80&w=800'
-                                : 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800'
-                            } 
+                                  ? 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=800'
+                                  : rest.cuisine_type?.toLowerCase().includes('japanese') || rest.cuisine_type?.toLowerCase().includes('sushi')
+                                    ? 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80&w=800'
+                                    : rest.cuisine_type?.toLowerCase().includes('steak')
+                                      ? 'https://images.unsplash.com/photo-1432139548705-1744ad99741c?auto=format&fit=crop&q=80&w=800'
+                                      : 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800'
+                            }
                             alt={rest.rest_name}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
@@ -1823,7 +1823,7 @@ export default function App() {
                             <p className="text-xs text-white/50 flex items-center gap-1"><MapPin size={12} /> {rest.address}</p>
                             <p className="text-xs text-white/50 pt-2">City: {rest.resolved_city || `City #${rest.city_id}`}</p>
                           </div>
-                          <button 
+                          <button
                             onClick={(e) => { e.stopPropagation(); setSelectedRest(rest); navigateTo('details'); }}
                             className="w-full py-3 mt-4 rounded-xl border border-gold/30 text-gold font-bold text-xs uppercase hover:bg-gold hover:text-black transition-all"
                           >
@@ -1835,7 +1835,7 @@ export default function App() {
                   </div>
                   {filteredRestaurants.length > visibleRestsCount && (
                     <div className="flex justify-center pt-4">
-                      <button 
+                      <button
                         onClick={() => setVisibleRestsCount(prev => prev + 24)}
                         className="gold-btn py-3 px-8 uppercase tracking-widest text-xs"
                       >
@@ -1850,7 +1850,7 @@ export default function App() {
 
           {/* ==================== DETAILS PAGE ==================== */}
           {page === 'details' && (
-            <motion.div 
+            <motion.div
               key="details"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -1947,7 +1947,7 @@ export default function App() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="space-y-1">
                             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Review Title</label>
-                            <input 
+                            <input
                               type="text"
                               value={reviewTitle}
                               onChange={(e) => setReviewTitle(e.target.value)}
@@ -1958,7 +1958,7 @@ export default function App() {
                           </div>
                           <div className="space-y-1">
                             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Rating Score</label>
-                            <select 
+                            <select
                               value={reviewRating}
                               onChange={(e) => setReviewRating(Number(e.target.value))}
                               className="glass-input w-full px-4 py-2.5 rounded-xl text-black font-bold text-sm"
@@ -1973,7 +1973,7 @@ export default function App() {
                         </div>
                         <div className="space-y-1">
                           <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Comment / Review Detail</label>
-                          <textarea 
+                          <textarea
                             value={reviewComment}
                             onChange={(e) => setReviewComment(e.target.value)}
                             placeholder="Share your experience details with other community members..."
@@ -1996,7 +1996,7 @@ export default function App() {
                     )}
                   </div>
 
-                  <button 
+                  <button
                     onClick={() => navigateTo('checkout')}
                     className="gold-btn w-full py-4 mt-8 uppercase tracking-widest text-sm"
                   >
@@ -2078,7 +2078,7 @@ export default function App() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="space-y-1">
                             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Review Title</label>
-                            <input 
+                            <input
                               type="text"
                               value={reviewTitle}
                               onChange={(e) => setReviewTitle(e.target.value)}
@@ -2089,7 +2089,7 @@ export default function App() {
                           </div>
                           <div className="space-y-1">
                             <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Rating Score</label>
-                            <select 
+                            <select
                               value={reviewRating}
                               onChange={(e) => setReviewRating(Number(e.target.value))}
                               className="glass-input w-full px-4 py-2.5 rounded-xl text-black font-bold text-sm"
@@ -2104,7 +2104,7 @@ export default function App() {
                         </div>
                         <div className="space-y-1">
                           <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Comment / Review Detail</label>
-                          <textarea 
+                          <textarea
                             value={reviewComment}
                             onChange={(e) => setReviewComment(e.target.value)}
                             placeholder="Share your dining experience details with other community members..."
@@ -2127,7 +2127,7 @@ export default function App() {
                     )}
                   </div>
 
-                  <button 
+                  <button
                     onClick={() => navigateTo('checkout')}
                     className="gold-btn w-full py-4 mt-8 uppercase tracking-widest text-sm"
                   >
@@ -2140,7 +2140,7 @@ export default function App() {
 
           {/* ==================== CHECKOUT PAGE ==================== */}
           {page === 'checkout' && (
-            <motion.div 
+            <motion.div
               key="checkout"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -2151,7 +2151,7 @@ export default function App() {
               </button>
 
               <h3 className="text-3xl font-serif font-bold text-gold mb-6 uppercase">Confirm Details</h3>
-              
+
               {sector === 'cars' && selectedCar ? (
                 <div className="space-y-4">
                   <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2 text-sm mb-4">
@@ -2169,12 +2169,12 @@ export default function App() {
                     <p className="font-bold text-gold">Restaurant Selected:</p>
                     <p className="text-lg font-serif">{selectedRest.rest_name}</p>
                   </div>
-                  
+
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Number of Guests</label>
-                    <input 
-                      type="number" 
-                      min="1" 
+                    <input
+                      type="number"
+                      min="1"
                       required
                       className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold"
                       value={restSearchParams.peopleNum}
@@ -2184,8 +2184,8 @@ export default function App() {
 
                   <div className="space-y-1">
                     <label className="text-[10px] font-bold text-gold uppercase tracking-widest block">Reservation Date</label>
-                    <input 
-                      type="date" 
+                    <input
+                      type="date"
                       required
                       className="glass-input w-full px-4 py-2 rounded-xl text-black font-bold"
                       value={restSearchParams.bookingDate}
@@ -2203,7 +2203,7 @@ export default function App() {
 
           {/* ==================== SUCCESS PAGE ==================== */}
           {page === 'success' && (
-            <motion.div 
+            <motion.div
               key="success"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -2229,7 +2229,7 @@ export default function App() {
 
           {/* ==================== HISTORY PAGE ==================== */}
           {page === 'history' && (
-            <motion.div 
+            <motion.div
               key="history"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -2253,7 +2253,7 @@ export default function App() {
                       <span className="text-emerald-500 text-xs font-bold bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
                         {b.status}
                       </span>
-                      <button 
+                      <button
                         onClick={() => setViewingBooking(b)}
                         className="gold-btn py-2 px-4 text-xs font-bold uppercase tracking-wider"
                       >
@@ -2271,7 +2271,7 @@ export default function App() {
 
           {/* ==================== ADMIN CRUD PAGE ==================== */}
           {page === 'admin' && (
-            <motion.div 
+            <motion.div
               key="admin"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -2281,10 +2281,10 @@ export default function App() {
               <div className="lg:col-span-4 space-y-6">
                 <div className="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
                   <h3 className="text-xl font-serif font-bold text-gold flex items-center gap-2"><Database size={20} /> CRUD Control</h3>
-                  
+
                   <div>
                     <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest block mb-2">Active Table</label>
-                    <select 
+                    <select
                       className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                       value={selectedTable}
                       onChange={(e) => setSelectedTable(e.target.value)}
@@ -2297,7 +2297,7 @@ export default function App() {
 
                   <div>
                     <label className="text-[10px] font-bold text-white/40 uppercase tracking-widest block mb-2">Display Limit</label>
-                    <select 
+                    <select
                       className="glass-input w-full px-4 py-3 rounded-xl font-bold text-black"
                       value={crudLimit}
                       onChange={(e) => setCrudLimit(e.target.value)}
@@ -2313,14 +2313,14 @@ export default function App() {
                   <div className="pt-4 border-t border-white/5 space-y-2">
                     <label className="text-[10px] font-gold text-gold uppercase tracking-widest block font-bold">Fetch Key ID for Update</label>
                     <div className="flex gap-2">
-                      <input 
-                        type="text" 
-                        placeholder="ID / Primary Key" 
+                      <input
+                        type="text"
+                        placeholder="ID / Primary Key"
                         value={crudSearchId}
                         onChange={(e) => setCrudSearchId(e.target.value)}
                         className="glass-input flex-grow px-3 py-2 rounded-xl text-black font-bold text-sm"
                       />
-                      <button 
+                      <button
                         onClick={handleCrudFetch}
                         className="bg-gold hover:bg-gold-dark text-black font-bold text-xs px-4 py-2 rounded-xl"
                       >
@@ -2336,8 +2336,8 @@ export default function App() {
                     {TABLE_SCHEMAS[selectedTable].fields.map(f => (
                       <div key={f.name} className="space-y-1">
                         <label className="text-[10px] font-bold text-white/50 block">{f.label}</label>
-                        <input 
-                          type={f.type} 
+                        <input
+                          type={f.type}
                           required={f.required}
                           disabled={isEditMode && f.name === TABLE_SCHEMAS[selectedTable].pk}
                           value={f.type === 'date' && typeof crudFormData[f.name] === 'string' ? crudFormData[f.name].split('T')[0] : (crudFormData[f.name] || '')}
@@ -2350,8 +2350,8 @@ export default function App() {
                       {isEditMode ? 'Save Updates' : 'Create Record'}
                     </button>
                     {isEditMode && (
-                      <button 
-                        type="button" 
+                      <button
+                        type="button"
                         onClick={() => { setCrudFormData({}); setIsEditMode(false); }}
                         className="w-full py-2 mt-2 rounded-xl border border-white/10 text-white/50 hover:text-white text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all text-center"
                       >
@@ -2404,7 +2404,7 @@ export default function App() {
 
           {/* ==================== BUSINESS INSIGHTS PAGE ==================== */}
           {page === 'analytics' && (
-            <motion.div 
+            <motion.div
               key="analytics"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -2417,7 +2417,7 @@ export default function App() {
 
                   {/* Button 1: Procedure pr_apply_strategic_discounts */}
                   <div className="p-4 rounded-xl bg-white/5 border border-white/5 text-center">
-                    <button 
+                    <button
                       onClick={runDiscountProcedure}
                       className="gold-btn w-full text-xs uppercase tracking-widest"
                     >
@@ -2428,14 +2428,14 @@ export default function App() {
                   {/* Button 2: Function fn_calculate_city_health_index */}
                   <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-2">
                     <div className="flex gap-2">
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         value={healthIndexCity}
                         onChange={(e) => setHealthIndexCity(e.target.value)}
                         placeholder="Enter City Name"
                         className="glass-input px-3 py-1.5 rounded-xl text-xs text-black font-bold flex-grow"
                       />
-                      <button 
+                      <button
                         onClick={runCityHealthIndex}
                         className="bg-gold text-black font-bold text-xs py-1.5 px-4 rounded-xl hover:bg-gold-dark"
                       >
@@ -2448,14 +2448,14 @@ export default function App() {
                   {/* Button 3: Function fn_get_tourist_activity (Cursor) */}
                   <div className="p-4 rounded-xl bg-white/5 border border-white/5 space-y-2">
                     <div className="flex gap-2">
-                      <input 
-                        type="number" 
+                      <input
+                        type="number"
                         value={activityTouristId}
                         onChange={(e) => setActivityTouristId(e.target.value)}
                         placeholder="Enter Tourist ID"
                         className="glass-input px-3 py-1.5 rounded-xl text-xs text-black font-bold flex-grow"
                       />
-                      <button 
+                      <button
                         onClick={runTouristActivity}
                         className="bg-gold text-black font-bold text-xs py-1.5 px-4 rounded-xl hover:bg-gold-dark"
                       >
@@ -2484,10 +2484,10 @@ export default function App() {
 
               {/* Predefined Dynamic Reports */}
               <div className="lg:col-span-7 space-y-6">
-                
+
                 {/* Report 1 Button */}
                 <div className="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
-                  <button 
+                  <button
                     onClick={runJerusalemCarsQuery}
                     className="gold-btn w-full text-xs uppercase tracking-widest text-center"
                   >
@@ -2523,7 +2523,7 @@ export default function App() {
 
                 {/* Report 2 Button */}
                 <div className="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
-                  <button 
+                  <button
                     onClick={runRecommendedQuery}
                     className="gold-btn w-full text-xs uppercase tracking-widest text-center"
                   >
@@ -2593,8 +2593,8 @@ export default function App() {
 
           {/* ==================== LOGIN PAGE ==================== */}
           {page === 'login' && (
-            <AuthGate 
-              onLogin={(profile) => { handleLogin(profile); navigateTo('home'); }} 
+            <AuthGate
+              onLogin={(profile) => { handleLogin(profile); navigateTo('home'); }}
               onCancel={() => navigateTo('home')}
             />
           )}
@@ -2608,8 +2608,8 @@ export default function App() {
               exit={{ opacity: 0 }}
               className="w-full py-10"
             >
-              <ProfilePage 
-                user={user} 
+              <ProfilePage
+                user={user}
                 onUpdateUser={(updatedProfile) => {
                   setUser(updatedProfile);
                   localStorage.setItem('rentcars_user', JSON.stringify(updatedProfile));

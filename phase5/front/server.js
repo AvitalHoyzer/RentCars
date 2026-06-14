@@ -18,9 +18,9 @@ const PORT = process.env.PORT || 5000;
 const pool = new pg.Pool({
   host: 'localhost',
   port: 5432,
-  user: 'moriya',
-  password: 'mkalfon',
-  database: 'integratedDB'
+  user: 'avital',
+  password: 'moriya',
+  database: 'IntegratedDB'
 });
 
 // Sync database sequences with maximum ID values to prevent duplicate key violations
