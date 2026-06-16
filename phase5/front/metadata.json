@@ -1,7 +1,0 @@
-{
-  "name": "Copy of RentCars Luxury",
-  "description": "Premium car rental experience with high-fidelity glassmorphism design.",
-  "requestFramePermissions": [
-    "geolocation"
-  ]
-}
